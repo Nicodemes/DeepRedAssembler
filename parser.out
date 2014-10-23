@@ -1,395 +1,206 @@
 Created by PLY version 3.4 (http://www.dabeaz.com/ply)
 
+Unused terminals:
+
+    COMMENT
+    UNKNOWNVALUE
+
 Grammar
 
-Rule 0     S' -> statement
-Rule 1     statement -> NAME EQUALS expression
-Rule 2     statement -> expression
-Rule 3     expression -> expression PLUS expression
-Rule 4     expression -> expression MINUS expression
-Rule 5     expression -> expression TIMES expression
-Rule 6     expression -> expression DIVIDE expression
-Rule 7     expression -> MINUS expression
-Rule 8     expression -> LPAREN expression RPAREN
-Rule 9     expression -> NUMBER
-Rule 10    expression -> NAME
+Rule 0     S' -> segmentList
+Rule 1     segmentList -> segment
+Rule 2     segmentList -> segmentList segment
+Rule 3     segment -> SEGMENT dataList
+Rule 4     dataList -> varassign
+Rule 5     dataList -> dataList varassign
+Rule 6     varassign -> NAME DECVAR literal
+Rule 7     variable -> NAME
+Rule 8     statement -> NAME LABLESIGN statement
+Rule 9     statement -> OPCODE oprandList
+Rule 10    oprandList -> oprand
+Rule 11    oprandList -> oprandList oprand
+Rule 12    literal -> DEC
+Rule 13    literal -> HEX
+Rule 14    literal -> BIN
+Rule 15    literal -> STRING
+Rule 16    oprand -> variable
+Rule 17    oprand -> LBRACK literal RBRACK
+Rule 18    oprand -> LBRACK variable RBRACK
 
 Terminals, with rules where they appear
 
-DIVIDE               : 6
-EQUALS               : 1
-LPAREN               : 8
-MINUS                : 4 7
-NAME                 : 1 10
-NUMBER               : 9
-PLUS                 : 3
-RPAREN               : 8
-TIMES                : 5
+BIN                  : 14
+COMMENT              : 
+DEC                  : 12
+DECVAR               : 6
+HEX                  : 13
+LABLESIGN            : 8
+LBRACK               : 17 18
+NAME                 : 6 7 8
+OPCODE               : 9
+RBRACK               : 17 18
+SEGMENT              : 3
+STRING               : 15
+UNKNOWNVALUE         : 
 error                : 
 
 Nonterminals, with rules where they appear
 
-expression           : 1 2 3 3 4 4 5 5 6 6 7 8
-statement            : 0
+dataList             : 3 5
+literal              : 6 17
+oprand               : 10 11
+oprandList           : 9 11
+segment              : 1 2
+segmentList          : 2 0
+statement            : 8
+varassign            : 4 5
+variable             : 16 18
 
 Parsing method: LALR
 
 state 0
 
-    (0) S' -> . statement
-    (1) statement -> . NAME EQUALS expression
-    (2) statement -> . expression
-    (3) expression -> . expression PLUS expression
-    (4) expression -> . expression MINUS expression
-    (5) expression -> . expression TIMES expression
-    (6) expression -> . expression DIVIDE expression
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
+    (0) S' -> . segmentList
+    (1) segmentList -> . segment
+    (2) segmentList -> . segmentList segment
+    (3) segment -> . SEGMENT dataList
 
-    NAME            shift and go to state 4
-    MINUS           shift and go to state 3
-    LPAREN          shift and go to state 6
-    NUMBER          shift and go to state 1
+    SEGMENT         shift and go to state 2
 
-    statement                      shift and go to state 2
-    expression                     shift and go to state 5
+    segmentList                    shift and go to state 1
+    segment                        shift and go to state 3
 
 state 1
 
-    (9) expression -> NUMBER .
+    (0) S' -> segmentList .
+    (2) segmentList -> segmentList . segment
+    (3) segment -> . SEGMENT dataList
 
-    PLUS            reduce using rule 9 (expression -> NUMBER .)
-    MINUS           reduce using rule 9 (expression -> NUMBER .)
-    TIMES           reduce using rule 9 (expression -> NUMBER .)
-    DIVIDE          reduce using rule 9 (expression -> NUMBER .)
-    $end            reduce using rule 9 (expression -> NUMBER .)
-    RPAREN          reduce using rule 9 (expression -> NUMBER .)
+    SEGMENT         shift and go to state 2
 
+    segment                        shift and go to state 4
 
 state 2
 
-    (0) S' -> statement .
+    (3) segment -> SEGMENT . dataList
+    (4) dataList -> . varassign
+    (5) dataList -> . dataList varassign
+    (6) varassign -> . NAME DECVAR literal
 
+    NAME            shift and go to state 6
 
+    varassign                      shift and go to state 7
+    dataList                       shift and go to state 5
 
 state 3
 
-    (7) expression -> MINUS . expression
-    (3) expression -> . expression PLUS expression
-    (4) expression -> . expression MINUS expression
-    (5) expression -> . expression TIMES expression
-    (6) expression -> . expression DIVIDE expression
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
+    (1) segmentList -> segment .
 
-    MINUS           shift and go to state 3
-    LPAREN          shift and go to state 6
-    NUMBER          shift and go to state 1
-    NAME            shift and go to state 7
+    SEGMENT         reduce using rule 1 (segmentList -> segment .)
+    $end            reduce using rule 1 (segmentList -> segment .)
 
-    expression                     shift and go to state 8
 
 state 4
 
-    (1) statement -> NAME . EQUALS expression
-    (10) expression -> NAME .
+    (2) segmentList -> segmentList segment .
 
-    EQUALS          shift and go to state 9
-    PLUS            reduce using rule 10 (expression -> NAME .)
-    MINUS           reduce using rule 10 (expression -> NAME .)
-    TIMES           reduce using rule 10 (expression -> NAME .)
-    DIVIDE          reduce using rule 10 (expression -> NAME .)
-    $end            reduce using rule 10 (expression -> NAME .)
+    SEGMENT         reduce using rule 2 (segmentList -> segmentList segment .)
+    $end            reduce using rule 2 (segmentList -> segmentList segment .)
 
 
 state 5
 
-    (2) statement -> expression .
-    (3) expression -> expression . PLUS expression
-    (4) expression -> expression . MINUS expression
-    (5) expression -> expression . TIMES expression
-    (6) expression -> expression . DIVIDE expression
+    (3) segment -> SEGMENT dataList .
+    (5) dataList -> dataList . varassign
+    (6) varassign -> . NAME DECVAR literal
 
-    $end            reduce using rule 2 (statement -> expression .)
-    PLUS            shift and go to state 11
-    MINUS           shift and go to state 10
-    TIMES           shift and go to state 12
-    DIVIDE          shift and go to state 13
+    SEGMENT         reduce using rule 3 (segment -> SEGMENT dataList .)
+    $end            reduce using rule 3 (segment -> SEGMENT dataList .)
+    NAME            shift and go to state 6
 
+    varassign                      shift and go to state 8
 
 state 6
 
-    (8) expression -> LPAREN . expression RPAREN
-    (3) expression -> . expression PLUS expression
-    (4) expression -> . expression MINUS expression
-    (5) expression -> . expression TIMES expression
-    (6) expression -> . expression DIVIDE expression
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
+    (6) varassign -> NAME . DECVAR literal
 
-    MINUS           shift and go to state 3
-    LPAREN          shift and go to state 6
-    NUMBER          shift and go to state 1
-    NAME            shift and go to state 7
+    DECVAR          shift and go to state 9
 
-    expression                     shift and go to state 14
 
 state 7
 
-    (10) expression -> NAME .
+    (4) dataList -> varassign .
 
-    PLUS            reduce using rule 10 (expression -> NAME .)
-    MINUS           reduce using rule 10 (expression -> NAME .)
-    TIMES           reduce using rule 10 (expression -> NAME .)
-    DIVIDE          reduce using rule 10 (expression -> NAME .)
-    $end            reduce using rule 10 (expression -> NAME .)
-    RPAREN          reduce using rule 10 (expression -> NAME .)
+    NAME            reduce using rule 4 (dataList -> varassign .)
+    SEGMENT         reduce using rule 4 (dataList -> varassign .)
+    $end            reduce using rule 4 (dataList -> varassign .)
 
 
 state 8
 
-    (7) expression -> MINUS expression .
-    (3) expression -> expression . PLUS expression
-    (4) expression -> expression . MINUS expression
-    (5) expression -> expression . TIMES expression
-    (6) expression -> expression . DIVIDE expression
+    (5) dataList -> dataList varassign .
 
-    PLUS            reduce using rule 7 (expression -> MINUS expression .)
-    MINUS           reduce using rule 7 (expression -> MINUS expression .)
-    TIMES           reduce using rule 7 (expression -> MINUS expression .)
-    DIVIDE          reduce using rule 7 (expression -> MINUS expression .)
-    $end            reduce using rule 7 (expression -> MINUS expression .)
-    RPAREN          reduce using rule 7 (expression -> MINUS expression .)
-
-  ! PLUS            [ shift and go to state 11 ]
-  ! MINUS           [ shift and go to state 10 ]
-  ! TIMES           [ shift and go to state 12 ]
-  ! DIVIDE          [ shift and go to state 13 ]
+    NAME            reduce using rule 5 (dataList -> dataList varassign .)
+    SEGMENT         reduce using rule 5 (dataList -> dataList varassign .)
+    $end            reduce using rule 5 (dataList -> dataList varassign .)
 
 
 state 9
 
-    (1) statement -> NAME EQUALS . expression
-    (3) expression -> . expression PLUS expression
-    (4) expression -> . expression MINUS expression
-    (5) expression -> . expression TIMES expression
-    (6) expression -> . expression DIVIDE expression
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
+    (6) varassign -> NAME DECVAR . literal
+    (12) literal -> . DEC
+    (13) literal -> . HEX
+    (14) literal -> . BIN
+    (15) literal -> . STRING
 
-    MINUS           shift and go to state 3
-    LPAREN          shift and go to state 6
-    NUMBER          shift and go to state 1
-    NAME            shift and go to state 7
+    DEC             shift and go to state 14
+    HEX             shift and go to state 11
+    BIN             shift and go to state 10
+    STRING          shift and go to state 12
 
-    expression                     shift and go to state 15
+    literal                        shift and go to state 13
 
 state 10
 
-    (4) expression -> expression MINUS . expression
-    (3) expression -> . expression PLUS expression
-    (4) expression -> . expression MINUS expression
-    (5) expression -> . expression TIMES expression
-    (6) expression -> . expression DIVIDE expression
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
+    (14) literal -> BIN .
 
-    MINUS           shift and go to state 3
-    LPAREN          shift and go to state 6
-    NUMBER          shift and go to state 1
-    NAME            shift and go to state 7
+    NAME            reduce using rule 14 (literal -> BIN .)
+    SEGMENT         reduce using rule 14 (literal -> BIN .)
+    $end            reduce using rule 14 (literal -> BIN .)
 
-    expression                     shift and go to state 16
 
 state 11
 
-    (3) expression -> expression PLUS . expression
-    (3) expression -> . expression PLUS expression
-    (4) expression -> . expression MINUS expression
-    (5) expression -> . expression TIMES expression
-    (6) expression -> . expression DIVIDE expression
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
+    (13) literal -> HEX .
 
-    MINUS           shift and go to state 3
-    LPAREN          shift and go to state 6
-    NUMBER          shift and go to state 1
-    NAME            shift and go to state 7
+    NAME            reduce using rule 13 (literal -> HEX .)
+    SEGMENT         reduce using rule 13 (literal -> HEX .)
+    $end            reduce using rule 13 (literal -> HEX .)
 
-    expression                     shift and go to state 17
 
 state 12
 
-    (5) expression -> expression TIMES . expression
-    (3) expression -> . expression PLUS expression
-    (4) expression -> . expression MINUS expression
-    (5) expression -> . expression TIMES expression
-    (6) expression -> . expression DIVIDE expression
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
+    (15) literal -> STRING .
 
-    MINUS           shift and go to state 3
-    LPAREN          shift and go to state 6
-    NUMBER          shift and go to state 1
-    NAME            shift and go to state 7
+    NAME            reduce using rule 15 (literal -> STRING .)
+    SEGMENT         reduce using rule 15 (literal -> STRING .)
+    $end            reduce using rule 15 (literal -> STRING .)
 
-    expression                     shift and go to state 18
 
 state 13
 
-    (6) expression -> expression DIVIDE . expression
-    (3) expression -> . expression PLUS expression
-    (4) expression -> . expression MINUS expression
-    (5) expression -> . expression TIMES expression
-    (6) expression -> . expression DIVIDE expression
-    (7) expression -> . MINUS expression
-    (8) expression -> . LPAREN expression RPAREN
-    (9) expression -> . NUMBER
-    (10) expression -> . NAME
+    (6) varassign -> NAME DECVAR literal .
 
-    MINUS           shift and go to state 3
-    LPAREN          shift and go to state 6
-    NUMBER          shift and go to state 1
-    NAME            shift and go to state 7
+    NAME            reduce using rule 6 (varassign -> NAME DECVAR literal .)
+    SEGMENT         reduce using rule 6 (varassign -> NAME DECVAR literal .)
+    $end            reduce using rule 6 (varassign -> NAME DECVAR literal .)
 
-    expression                     shift and go to state 19
 
 state 14
 
-    (8) expression -> LPAREN expression . RPAREN
-    (3) expression -> expression . PLUS expression
-    (4) expression -> expression . MINUS expression
-    (5) expression -> expression . TIMES expression
-    (6) expression -> expression . DIVIDE expression
+    (12) literal -> DEC .
 
-    RPAREN          shift and go to state 20
-    PLUS            shift and go to state 11
-    MINUS           shift and go to state 10
-    TIMES           shift and go to state 12
-    DIVIDE          shift and go to state 13
-
-
-state 15
-
-    (1) statement -> NAME EQUALS expression .
-    (3) expression -> expression . PLUS expression
-    (4) expression -> expression . MINUS expression
-    (5) expression -> expression . TIMES expression
-    (6) expression -> expression . DIVIDE expression
-
-    $end            reduce using rule 1 (statement -> NAME EQUALS expression .)
-    PLUS            shift and go to state 11
-    MINUS           shift and go to state 10
-    TIMES           shift and go to state 12
-    DIVIDE          shift and go to state 13
-
-
-state 16
-
-    (4) expression -> expression MINUS expression .
-    (3) expression -> expression . PLUS expression
-    (4) expression -> expression . MINUS expression
-    (5) expression -> expression . TIMES expression
-    (6) expression -> expression . DIVIDE expression
-
-    PLUS            reduce using rule 4 (expression -> expression MINUS expression .)
-    MINUS           reduce using rule 4 (expression -> expression MINUS expression .)
-    $end            reduce using rule 4 (expression -> expression MINUS expression .)
-    RPAREN          reduce using rule 4 (expression -> expression MINUS expression .)
-    TIMES           shift and go to state 12
-    DIVIDE          shift and go to state 13
-
-  ! TIMES           [ reduce using rule 4 (expression -> expression MINUS expression .) ]
-  ! DIVIDE          [ reduce using rule 4 (expression -> expression MINUS expression .) ]
-  ! PLUS            [ shift and go to state 11 ]
-  ! MINUS           [ shift and go to state 10 ]
-
-
-state 17
-
-    (3) expression -> expression PLUS expression .
-    (3) expression -> expression . PLUS expression
-    (4) expression -> expression . MINUS expression
-    (5) expression -> expression . TIMES expression
-    (6) expression -> expression . DIVIDE expression
-
-    PLUS            reduce using rule 3 (expression -> expression PLUS expression .)
-    MINUS           reduce using rule 3 (expression -> expression PLUS expression .)
-    $end            reduce using rule 3 (expression -> expression PLUS expression .)
-    RPAREN          reduce using rule 3 (expression -> expression PLUS expression .)
-    TIMES           shift and go to state 12
-    DIVIDE          shift and go to state 13
-
-  ! TIMES           [ reduce using rule 3 (expression -> expression PLUS expression .) ]
-  ! DIVIDE          [ reduce using rule 3 (expression -> expression PLUS expression .) ]
-  ! PLUS            [ shift and go to state 11 ]
-  ! MINUS           [ shift and go to state 10 ]
-
-
-state 18
-
-    (5) expression -> expression TIMES expression .
-    (3) expression -> expression . PLUS expression
-    (4) expression -> expression . MINUS expression
-    (5) expression -> expression . TIMES expression
-    (6) expression -> expression . DIVIDE expression
-
-    PLUS            reduce using rule 5 (expression -> expression TIMES expression .)
-    MINUS           reduce using rule 5 (expression -> expression TIMES expression .)
-    TIMES           reduce using rule 5 (expression -> expression TIMES expression .)
-    DIVIDE          reduce using rule 5 (expression -> expression TIMES expression .)
-    $end            reduce using rule 5 (expression -> expression TIMES expression .)
-    RPAREN          reduce using rule 5 (expression -> expression TIMES expression .)
-
-  ! PLUS            [ shift and go to state 11 ]
-  ! MINUS           [ shift and go to state 10 ]
-  ! TIMES           [ shift and go to state 12 ]
-  ! DIVIDE          [ shift and go to state 13 ]
-
-
-state 19
-
-    (6) expression -> expression DIVIDE expression .
-    (3) expression -> expression . PLUS expression
-    (4) expression -> expression . MINUS expression
-    (5) expression -> expression . TIMES expression
-    (6) expression -> expression . DIVIDE expression
-
-    PLUS            reduce using rule 6 (expression -> expression DIVIDE expression .)
-    MINUS           reduce using rule 6 (expression -> expression DIVIDE expression .)
-    TIMES           reduce using rule 6 (expression -> expression DIVIDE expression .)
-    DIVIDE          reduce using rule 6 (expression -> expression DIVIDE expression .)
-    $end            reduce using rule 6 (expression -> expression DIVIDE expression .)
-    RPAREN          reduce using rule 6 (expression -> expression DIVIDE expression .)
-
-  ! PLUS            [ shift and go to state 11 ]
-  ! MINUS           [ shift and go to state 10 ]
-  ! TIMES           [ shift and go to state 12 ]
-  ! DIVIDE          [ shift and go to state 13 ]
-
-
-state 20
-
-    (8) expression -> LPAREN expression RPAREN .
-
-    PLUS            reduce using rule 8 (expression -> LPAREN expression RPAREN .)
-    MINUS           reduce using rule 8 (expression -> LPAREN expression RPAREN .)
-    TIMES           reduce using rule 8 (expression -> LPAREN expression RPAREN .)
-    DIVIDE          reduce using rule 8 (expression -> LPAREN expression RPAREN .)
-    $end            reduce using rule 8 (expression -> LPAREN expression RPAREN .)
-    RPAREN          reduce using rule 8 (expression -> LPAREN expression RPAREN .)
+    NAME            reduce using rule 12 (literal -> DEC .)
+    SEGMENT         reduce using rule 12 (literal -> DEC .)
+    $end            reduce using rule 12 (literal -> DEC .)
 

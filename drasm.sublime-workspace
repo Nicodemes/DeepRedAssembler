@@ -4,16 +4,60 @@
 		"selected_items":
 		[
 			[
+				"va",
+				"value"
+			],
+			[
+				"vara",
+				"variables"
+			],
+			[
+				"state",
+				"statements"
+			],
+			[
+				"opra",
+				"oprandList"
+			],
+			[
+				"code",
+				"codeSegment"
+			],
+			[
+				"loca",
+				"locationInSegment"
+			],
+			[
+				"imp",
+				"import"
+			],
+			[
+				"Op",
+				"OPCODE"
+			],
+			[
+				"data",
+				"dataList"
+			],
+			[
+				"var",
+				"variable"
+			],
+			[
+				"opr",
+				"oprand"
+			],
+			[
+				"get",
+				"getValue"
+			],
+			[
 				"opran",
 				"oprands"
 			],
 			[
 				"a",
 				"adress"
-			],
-			[
-				"data",
-				"dataSegment"
 			],
 			[
 				"ste",
@@ -188,10 +232,6 @@
 				"slotCount"
 			],
 			[
-				"get",
-				"getNumOfSlots"
-			],
-			[
 				"_pro",
 				"_proa"
 			],
@@ -274,10 +314,6 @@
 			[
 				"SUBRUT",
 				"Subrutine"
-			],
-			[
-				"state",
-				"statement"
 			],
 			[
 				"RBRA",
@@ -411,14 +447,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "oprands.py",
-			"settings":
-			{
-				"buffer_size": 1358,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "Packages/User/untitled.sublime-build",
 	"command_palette":
@@ -427,24 +455,84 @@
 		"selected_items":
 		[
 			[
-				"fold",
-				"Fold Python : fold depth 0"
+				"ta",
+				"Indentation: Convert to Tabs"
 			],
 			[
 				"tabs",
 				"Indentation: Convert to Tabs"
 			],
 			[
+				"tab",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"rmov",
+				"Package Control: Remove Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"sspython",
+				"Set Syntax: Python3"
+			],
+			[
+				"pytho",
+				"Python Docstrings: Fold"
+			],
+			[
+				"isnta",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
 				"ins",
 				"Package Control: Install Package"
 			],
 			[
-				"git",
+				"pac",
+				"Package Control: Remove Package"
+			],
+			[
+				"git co",
 				"Git: Commit"
 			],
 			[
-				"pac",
-				"Package Control: Install Package"
+				"git com",
+				"Git: Commit"
+			],
+			[
+				"git ad",
+				"Git: Add..."
+			],
+			[
+				"git add",
+				"Git: Add Current File"
+			],
+			[
+				"gi",
+				"Git: Commit"
+			],
+			[
+				"git ",
+				"Git: Commit"
+			],
+			[
+				"fold",
+				"Fold Python : fold depth 0"
+			],
+			[
+				"git",
+				"Git: Commit"
 			],
 			[
 				"pyth 3",
@@ -495,10 +583,6 @@
 				"Indentation: Convert to Tabs"
 			],
 			[
-				"insta",
-				"Package Control: Install Package"
-			],
-			[
 				"pa",
 				"Package Control: Install Package"
 			],
@@ -515,13 +599,27 @@
 				"Package Control: Remove Package"
 			]
 		],
-		"width": 520.0
+		"width": 536.0
 	},
 	"console":
 	{
 		"height": 153.0,
 		"history":
 		[
+			"for i, x in enumerate(sk)",
+			"for i, x in enumerate(sk):\\n\\t if i >1:\\n\\t\\tn+=x",
+			"for i, x in enumerate(sk):\\n if i >1:\\n+=x",
+			"for i, x in enumerate(sk):\\n if i >1:;nv+=x",
+			"for i, x in enumerate(sk):; if i >1:;nv+=x",
+			"for i, x in enumerate(sk):",
+			"sk=\"aa111\"",
+			"nv=\"\"",
+			"str=\"aa111\"",
+			"int(\"0b111\")",
+			"\"0123\"[:3:]",
+			"\"0123\"[:2:]",
+			"\"0123\"[2:]",
+			"\"0123\"[:2]",
 			"\"01234\"[:2]",
 			"\"01234\"[2:]",
 			"\"01234\"[1:]",
@@ -546,17 +644,20 @@
 	},
 	"expanded_folders":
 	[
-		"/E/cs/proj/DeepRedAssembler",
-		"/E/cs/proj/DeepRedAssembler/exmp"
+		"/E/cs/proj/DeepRedAssembler"
 	],
 	"file_history":
 	[
+		"/E/cs/proj/DeepRedAssembler/interfaces.py",
+		"/E/cs/proj/DeepRedAssembler/registers.py",
 		"/E/cs/proj/DeepRedAssembler/oprands.py",
+		"/E/cs/proj/DeepRedAssembler/statement.py",
 		"/E/cs/proj/DeepRedAssembler/segment.py",
 		"/E/cs/proj/DeepRedAssembler/main.py",
-		"/E/cs/proj/DeepRedAssembler/registers.py",
-		"/E/cs/proj/DeepRedAssembler/exmp/exp.asm",
+		"/C/Users/Alice/AppData/Roaming/Sublime Text 3/Settings/SideBarEnhancements.json",
+		"/E/cs/proj/DeepRedAssembler/COMMIT_EDITMSG.COMMIT_EDITMSG",
 		"/C/Users/Alice/AppData/Roaming/Sublime Text 3/Packages/User/fold1.py",
+		"/E/cs/proj/DeepRedAssembler/exmp/exp.asm",
 		"/C/Users/Alice/AppData/Roaming/Sublime Text 3/Packages/User/untitled.sublime-build",
 		"/E/cs/proj/DeepRedAssembler/.gitattributes",
 		"/E/cs/proj/DeepRedAssembler/ply-3.4.tar.gz",
@@ -753,7 +854,7 @@
 			"dest"
 		],
 		"highlight": true,
-		"in_selection": true,
+		"in_selection": false,
 		"preserve_case": false,
 		"regex": false,
 		"replace_history":
@@ -822,38 +923,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "oprands.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1358,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1304,
-								1304
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": -0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],

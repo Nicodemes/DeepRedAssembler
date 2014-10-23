@@ -1,6 +1,6 @@
 class Register():
 	def __init__(self):
-		print("my name is registee")
+		pass
 	
 generalPurpase={
 "AL":Register(),\

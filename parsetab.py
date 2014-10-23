@@ -5,9 +5,9 @@ _tabversion = '3.2'
 
 _lr_method = 'LALR'
 
-_lr_signature = b'\x95N\xe2*y\xdcB\x9c\xe0ou\xedS\x19,3'
+_lr_signature = b'\xdcH\xaa\xee\xb1\x07\xb2\xa4\x13\xa9M\xe4\x0c\xf2*+'
     
-_lr_action_items = {'RPAREN':([1,7,8,14,16,17,18,19,20,],[-9,-10,-7,20,-4,-3,-5,-6,-8,]),'LPAREN':([0,3,6,9,10,11,12,13,],[6,6,6,6,6,6,6,6,]),'PLUS':([1,4,5,7,8,14,15,16,17,18,19,20,],[-9,-10,11,-10,-7,11,11,-4,-3,-5,-6,-8,]),'TIMES':([1,4,5,7,8,14,15,16,17,18,19,20,],[-9,-10,12,-10,-7,12,12,12,12,-5,-6,-8,]),'DIVIDE':([1,4,5,7,8,14,15,16,17,18,19,20,],[-9,-10,13,-10,-7,13,13,13,13,-5,-6,-8,]),'NUMBER':([0,3,6,9,10,11,12,13,],[1,1,1,1,1,1,1,1,]),'$end':([1,2,4,5,7,8,15,16,17,18,19,20,],[-9,0,-10,-2,-10,-7,-1,-4,-3,-5,-6,-8,]),'NAME':([0,3,6,9,10,11,12,13,],[4,7,7,7,7,7,7,7,]),'MINUS':([0,1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,],[3,-9,3,-10,10,3,-10,-7,3,3,3,3,3,10,10,-4,-3,-5,-6,-8,]),'EQUALS':([4,],[9,]),}
+_lr_action_items = {'BIN':([9,],[10,]),'$end':([1,3,4,5,7,8,10,11,12,13,14,],[0,-1,-2,-3,-4,-5,-14,-13,-15,-6,-12,]),'SEGMENT':([0,1,3,4,5,7,8,10,11,12,13,14,],[2,2,-1,-2,-3,-4,-5,-14,-13,-15,-6,-12,]),'HEX':([9,],[11,]),'STRING':([9,],[12,]),'DECVAR':([6,],[9,]),'NAME':([2,5,7,8,10,11,12,13,14,],[6,6,-4,-5,-14,-13,-15,-6,-12,]),'DEC':([9,],[14,]),}
 
 _lr_action = { }
 for _k, _v in _lr_action_items.items():
@@ -16,7 +16,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'statement':([0,],[2,]),'expression':([0,3,6,9,10,11,12,13,],[5,8,14,15,16,17,18,19,]),}
+_lr_goto_items = {'segmentList':([0,],[1,]),'varassign':([2,5,],[7,8,]),'literal':([9,],[13,]),'dataList':([2,],[5,]),'segment':([0,1,],[3,4,]),}
 
 _lr_goto = { }
 for _k, _v in _lr_goto_items.items():
@@ -25,15 +25,23 @@ for _k, _v in _lr_goto_items.items():
        _lr_goto[_x][_k] = _y
 del _lr_goto_items
 _lr_productions = [
-  ("S' -> statement","S'",1,None,None,None),
-  ('statement -> NAME EQUALS expression','statement',3,'p_statement_assign','main.py',60),
-  ('statement -> expression','statement',1,'p_statement_expr','main.py',64),
-  ('expression -> expression PLUS expression','expression',3,'p_expression_binop','main.py',68),
-  ('expression -> expression MINUS expression','expression',3,'p_expression_binop','main.py',69),
-  ('expression -> expression TIMES expression','expression',3,'p_expression_binop','main.py',70),
-  ('expression -> expression DIVIDE expression','expression',3,'p_expression_binop','main.py',71),
-  ('expression -> MINUS expression','expression',2,'p_expression_uminus','main.py',78),
-  ('expression -> LPAREN expression RPAREN','expression',3,'p_expression_group','main.py',82),
-  ('expression -> NUMBER','expression',1,'p_expression_number','main.py',86),
-  ('expression -> NAME','expression',1,'p_expression_name','main.py',90),
+  ("S' -> segmentList","S'",1,None,None,None),
+  ('segmentList -> segment','segmentList',1,'p_segmentList','main.py',65),
+  ('segmentList -> segmentList segment','segmentList',2,'p_segmentList','main.py',66),
+  ('segment -> SEGMENT dataList','segment',2,'p_segment','main.py',74),
+  ('dataList -> varassign','dataList',1,'p_dataList','main.py',86),
+  ('dataList -> dataList varassign','dataList',2,'p_dataList','main.py',87),
+  ('varassign -> NAME DECVAR literal','varassign',3,'p_varassign','main.py',95),
+  ('variable -> NAME','variable',1,'p_variable','main.py',101),
+  ('statement -> NAME LABLESIGN statement','statement',3,'p_statement_labled','main.py',105),
+  ('statement -> OPCODE oprandList','statement',2,'p_statement','main.py',109),
+  ('oprandList -> oprand','oprandList',1,'p_oprandList','main.py',113),
+  ('oprandList -> oprandList oprand','oprandList',2,'p_oprandList','main.py',114),
+  ('literal -> DEC','literal',1,'p_oprand_literal','main.py',122),
+  ('literal -> HEX','literal',1,'p_oprand_literal','main.py',123),
+  ('literal -> BIN','literal',1,'p_oprand_literal','main.py',124),
+  ('literal -> STRING','literal',1,'p_oprand_literal','main.py',125),
+  ('oprand -> variable','oprand',1,'p_oprand_var','main.py',131),
+  ('oprand -> LBRACK literal RBRACK','oprand',3,'p_oprand_effadress','main.py',134),
+  ('oprand -> LBRACK variable RBRACK','oprand',3,'p_oprand_effadress','main.py',135),
 ]
