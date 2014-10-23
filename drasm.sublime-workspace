@@ -1,0 +1,951 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"opran",
+				"oprands"
+			],
+			[
+				"a",
+				"adress"
+			],
+			[
+				"data",
+				"dataSegment"
+			],
+			[
+				"ste",
+				"statementList"
+			],
+			[
+				"num",
+				"numOfBits"
+			],
+			[
+				"inte",
+				"intePivot"
+			],
+			[
+				"pear",
+				"peara"
+			],
+			[
+				"reload",
+				"reloadModules"
+			],
+			[
+				"com",
+				"common"
+			],
+			[
+				"fet",
+				"fetcher"
+			],
+			[
+				"way",
+				"wayName"
+			],
+			[
+				"is",
+				"isActive"
+			],
+			[
+				"in",
+				"__init__"
+			],
+			[
+				"mov",
+				"moveZ"
+			],
+			[
+				"move",
+				"moveY"
+			],
+			[
+				"de",
+				"demention"
+			],
+			[
+				"matrix",
+				"matrixSize"
+			],
+			[
+				"ma",
+				"matrixJump"
+			],
+			[
+				"__",
+				"__init__"
+			],
+			[
+				"spawn",
+				"spawnPosition"
+			],
+			[
+				"fetc",
+				"fetchRegister"
+			],
+			[
+				"ip",
+				"ipRegister"
+			],
+			[
+				"reg",
+				"register"
+			],
+			[
+				"reset",
+				"resetBlock"
+			],
+			[
+				"_inp",
+				"_inpSnow"
+			],
+			[
+				"des",
+				"dest"
+			],
+			[
+				"zero",
+				"zeroBit"
+			],
+			[
+				"sel",
+				"selector"
+			],
+			[
+				"over",
+				"overflowPointer"
+			],
+			[
+				"selec",
+				"selectora"
+			],
+			[
+				"iNum",
+				"iNumberA"
+			],
+			[
+				"el",
+				"elif"
+			],
+			[
+				"make",
+				"makePair"
+			],
+			[
+				"mak",
+				"makeLink"
+			],
+			[
+				"res",
+				"resultSub"
+			],
+			[
+				"Co",
+				"Component"
+			],
+			[
+				"C",
+				"Component"
+			],
+			[
+				"exc",
+				"execute"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"ret",
+				"return"
+			],
+			[
+				"fra",
+				"frames"
+			],
+			[
+				"no",
+				"None"
+			],
+			[
+				"Liter",
+				"Literal"
+			],
+			[
+				"cur",
+				"curx"
+			],
+			[
+				"H",
+				"hight"
+			],
+			[
+				"slo",
+				"slotCount"
+			],
+			[
+				"get",
+				"getNumOfSlots"
+			],
+			[
+				"_pro",
+				"_proa"
+			],
+			[
+				"ras",
+				"raise"
+			],
+			[
+				"Row",
+				"ROWS"
+			],
+			[
+				"cp",
+				"cpu_common"
+			],
+			[
+				"JMP",
+				"JMP_Z"
+			],
+			[
+				"Compoen",
+				"Component"
+			],
+			[
+				"spaw",
+				"spawnPosition"
+			],
+			[
+				"power",
+				"power-1"
+			],
+			[
+				"fram",
+				"frameCount"
+			],
+			[
+				"pwoe",
+				"powerblock"
+			],
+			[
+				"set",
+				"setblock"
+			],
+			[
+				"Exc",
+				"Exception"
+			],
+			[
+				"inv",
+				"invoke"
+			],
+			[
+				"tmp",
+				"tmpStart"
+			],
+			[
+				"siz",
+				"sizey"
+			],
+			[
+				"for",
+				"format"
+			],
+			[
+				"pea",
+				"pearb"
+			],
+			[
+				"Pear",
+				"pearb"
+			],
+			[
+				"subrut",
+				"subrutine"
+			],
+			[
+				"SUBR",
+				"SUBRUT"
+			],
+			[
+				"SUBRUT",
+				"Subrutine"
+			],
+			[
+				"state",
+				"statement"
+			],
+			[
+				"RBRA",
+				"RBRACK"
+			],
+			[
+				"subut",
+				"subrutineField"
+			],
+			[
+				"inp",
+				"inputPear"
+			],
+			[
+				"dir",
+				"dirpath"
+			],
+			[
+				"arg",
+				"argsc"
+			],
+			[
+				"call",
+				"callbackPear"
+			],
+			[
+				"invo",
+				"invokeEnter"
+			],
+			[
+				"invoke",
+				"invoke"
+			],
+			[
+				"RAM",
+				"RAM_READ"
+			],
+			[
+				"Comp",
+				"Component"
+			],
+			[
+				"Exce",
+				"Execute"
+			],
+			[
+				"deco",
+				"decodeRegiter"
+			],
+			[
+				"Decode",
+				"decodeRegiter"
+			],
+			[
+				"_test",
+				"_testRecall"
+			],
+			[
+				"XOrer",
+				"XORER"
+			],
+			[
+				"Com",
+				"Component1"
+			],
+			[
+				"Cmp",
+				"Component2"
+			],
+			[
+				"_pr",
+				"_prob"
+			],
+			[
+				"iNumber",
+				"iNumberB"
+			],
+			[
+				"Compo",
+				"Component"
+			],
+			[
+				"bank",
+				"banka"
+			],
+			[
+				"Iu",
+				"iNumberA"
+			],
+			[
+				"iNumBer",
+				"iNumberB"
+			],
+			[
+				"carr",
+				"carryPivot"
+			],
+			[
+				"start",
+				"startPoint"
+			],
+			[
+				"inu",
+				"iNumberA"
+			],
+			[
+				"iNumb",
+				"iNumberB"
+			],
+			[
+				"chu",
+				"chunck"
+			],
+			[
+				"outp",
+				"outp"
+			],
+			[
+				"_",
+				"__init__"
+			],
+			[
+				"fo",
+				"format"
+			],
+			[
+				"Incr",
+				"INCREASER"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "oprands.py",
+			"settings":
+			{
+				"buffer_size": 1358,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/User/untitled.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"fold",
+				"Fold Python : fold depth 0"
+			],
+			[
+				"tabs",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"git",
+				"Git: Commit"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"pyth 3",
+				"Fold Python : fold depth 3"
+			],
+			[
+				"ind",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"pyt",
+				"Set Syntax: Python"
+			],
+			[
+				"sste",
+				"Set Syntax: Textile"
+			],
+			[
+				"sst",
+				"Set Syntax: Textile"
+			],
+			[
+				"SSTE",
+				"Set Syntax: Textile"
+			],
+			[
+				"ss",
+				"Set Syntax: Python"
+			],
+			[
+				"ssp",
+				"Set Syntax: Python"
+			],
+			[
+				"sspy",
+				"Set Syntax: Python"
+			],
+			[
+				"in",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"inde",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"ide",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"fol",
+				"Fold Python : fold depth 3"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"PAC",
+				"Package Control: Remove Package"
+			]
+		],
+		"width": 520.0
+	},
+	"console":
+	{
+		"height": 153.0,
+		"history":
+		[
+			"\"01234\"[:2]",
+			"\"01234\"[2:]",
+			"\"01234\"[1:]",
+			"int(\"0b11\")",
+			"import main",
+			"python main",
+			"main",
+			"import DeepRed",
+			"DeepRed",
+			"import DeepREd",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/E/cs/proj/DeepRedAssembler",
+		"/E/cs/proj/DeepRedAssembler/exmp"
+	],
+	"file_history":
+	[
+		"/E/cs/proj/DeepRedAssembler/oprands.py",
+		"/E/cs/proj/DeepRedAssembler/segment.py",
+		"/E/cs/proj/DeepRedAssembler/main.py",
+		"/E/cs/proj/DeepRedAssembler/registers.py",
+		"/E/cs/proj/DeepRedAssembler/exmp/exp.asm",
+		"/C/Users/Alice/AppData/Roaming/Sublime Text 3/Packages/User/fold1.py",
+		"/C/Users/Alice/AppData/Roaming/Sublime Text 3/Packages/User/untitled.sublime-build",
+		"/E/cs/proj/DeepRedAssembler/.gitattributes",
+		"/E/cs/proj/DeepRedAssembler/ply-3.4.tar.gz",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/data/opcodes.json",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/CommandReplace.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/Build_CPU.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/common.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_cmp_logic.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_cmp_cdu.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_ref.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_cmp_calc.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpucalc.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/misc.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_opcodes.py",
+		"/C/Users/Alice/Desktop/cpu/mov.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_registers.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_cmp_ram.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/properties.json",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_cmp_screen.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/.git/config",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/Batch.py",
+		"/C/Users/Alice/Desktop/hack2.bat",
+		"/C/Users/Alice/hack.bat",
+		"/C/Users/Alice/hack2.bat",
+		"/C/Users/Alice/hack3.bat",
+		"/C/Users/Alice/hack1.bat",
+		"/E/cs/libs/py/canopy/User/Examples/pyface-4.2.0/file_sorters.py",
+		"/E/cs/proj/DeepRed/deepred.sublime-project",
+		"/E/cs/proj/DeepRed/cmp/opcodes.py",
+		"/E/cs/proj/DeepRed/main.py",
+		"/E/cs/proj/DeepRed/__init__.py",
+		"/E/cs/proj/DeepRed/compiler/compile.py",
+		"/E/cs/proj/DeepRed/compiler.py",
+		"/E/cs/proj/DeepRed/settings.json",
+		"/E/cs/proj/DeepRed/compiler/compiler.py",
+		"/E/cs/proj/DeepRed/compiler/Build_CPU.py",
+		"/E/cs/proj/DeepRed/common.py",
+		"/E/cs/proj/DeepRed/cpu_regold.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_main.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_common.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/data/bundle.json",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_main,py",
+		"/C/Users/Alice/AppData/Roaming/Sublime Text 3/Packages/User/autofold.py",
+		"/C/Users/Alice/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/Alice/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Alice/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Alice/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/hd.py",
+		"/C/Users/Alice/Desktop/cpu/increaer.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/del.bat",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_regold.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_OldMacros.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_cmp_keyboard.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_component.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_asm.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/a.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/replacecommand.pyo",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/a.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/cpu/amod.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/pymclevel._nbt.pyd",
+		"/E/cs/proj/IronRose/src/parser.py",
+		"/E/cs/proj/IronRose/src/field/subrutine.py",
+		"/E/cs/proj/IronRose/src/field/tape.py",
+		"/E/cs/proj/IronRose/src/blueprint.py",
+		"/E/cs/proj/IronRose/src/field/pears.py",
+		"/E/cs/proj/IronRose/src/field/field.py",
+		"/E/cs/proj/IronRose/doc/json/source/RAM.rdl",
+		"/E/cs/proj/IronRose/src/cmp/tape.py",
+		"/E/cs/proj/IronRose/src/cmp/blueprint.py",
+		"/E/cs/proj/IronRose/src/parser.out",
+		"/E/cs/proj/IronRose/src/pears.py",
+		"/E/cs/proj/IronRose/src/cmp/pears.py",
+		"/E/cs/proj/IronRose/src/tickdelay.py",
+		"/E/cs/proj/IronRose/src/parsetab.py",
+		"/E/cs/proj/IronRose/src/main.py",
+		"/D/Games/steamapps/common/Tribes/installscript.vdf",
+		"/D/Games/steamapps/common/Tribes/installscript_patcher.vdf",
+		"/C/Users/Alice/Desktop/sadasd0.cs",
+		"/E/cs/proj/IronRose/doc/json/source/RAM.mcr",
+		"/E/cs/proj/IronRose/doc/json/source/RAMaspy.rdl",
+		"/E/cs/proj/IronRose/doc/json/parced source/parsed.json",
+		"/E/cs/proj/IronRose/src/ironrose.sublime-project",
+		"/E/cs/proj/IronRose/src/tokeniser.py",
+		"/E/cs/proj/IronRose/src/sc.py",
+		"/E/cs/proj/IronRose/src/scr.py",
+		"/E/cs/proj/IronRose/doc/json/source/main.rdl",
+		"/E/cs/proj/IronRose/doc/json/source/subrutines/atob.rdl",
+		"/E/cs/proj/IronRose/doc/json/source/RAM.chip",
+		"/E/cs/proj/IronRose/doc/json/parced source/RAM.json",
+		"/E/cs/proj/IronRose/doc/json/parced source/atob.json",
+		"/E/cs/proj/IronRose/doc/precompressed/RAM.json",
+		"/E/cs/proj/IronRose/doc/precompressed/atob.json",
+		"/E/cs/proj/IronRose/doc/exmp source/atob.sub",
+		"/E/cs/proj/IronRose/doc/exmp source/RAM.chip",
+		"/E/cs/proj/IronRose/doc/exmp source/Cmd.sub",
+		"/E/cs/proj/IronRose/doc/exmp source/RAM.blu",
+		"/E/cs/proj/IronRose/doc/precompressed/RAM.xml",
+		"/E/cs/proj/BackScript/grammer.ebnf",
+		"/E/cs/proj/BackScript/grammer.bnf",
+		"/C/Users/Alice/Desktop/foo.bs",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/batchcommand.py"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 102.0,
+		"where_history":
+		[
+			"E:\\Games\\Minecraft\\mcedit\\MCEdit-0.1.7.1.win-amd64\\filters"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"A",
+			"a",
+			"SUP",
+			"SUB",
+			"and the class",
+			"the class",
+			"cpucalc",
+			"cpu_cmp_calc",
+			"cpucalc",
+			"cpu_cmp_calc",
+			"cpu_cmp_logic",
+			"fetchRegister",
+			"regRef1",
+			"a()",
+			"\\n\\t",
+			"=",
+			"Component.__init__",
+			"BindComponent",
+			"move",
+			"Move",
+			"\\",
+			")",
+			"(",
+			"Point",
+			"\\n",
+			")",
+			"f(",
+			")",
+			"\\)",
+			")",
+			"\\)",
+			")",
+			"\\)",
+			"f(",
+			",",
+			"f(",
+			",",
+			"f(",
+			"}",
+			"{",
+			")}",
+			"{(",
+			"\\n",
+			"Opcode",
+			"=",
+			"\\n",
+			" ",
+			"0,5",
+			"general",
+			"L",
+			"falgs",
+			"slots",
+			"portPool",
+			"^(.*)$",
+			"	\n",
+			"Negator",
+			"NegR",
+			"SubRR",
+			"Orer",
+			"inp",
+			"from cpu_component import *",
+			"Kill",
+			"MoveZ",
+			"movey",
+			"MoveY",
+			"MoveX",
+			"Execute",
+			"class CartPivot:	\n",
+			"($)\"",
+			"lex",
+			"exce",
+			"il",
+			"]\n",
+			" \n",
+			"dest"
+		],
+		"highlight": true,
+		"in_selection": true,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"B",
+			"b",
+			"cpu_cmp_calc",
+			"cpucalc",
+			"cpu_cmp_calc",
+			"cpucalc",
+			"fetcher.register",
+			"regRef2",
+			"pPool.alloc()",
+			",",
+			", ",
+			" , ",
+			" ",
+			":",
+			"LinkedComponent",
+			"/",
+			"]",
+			"",
+			"[",
+			",\\n",
+			"]",
+			"[",
+			"]",
+			"]\\n\\t",
+			"\\)\\n\\t",
+			"\\)\\n",
+			"[",
+			",\"y\":",
+			"{\"method\":\"compressed\",\"row\":",
+			",\"column\":",
+			"{\"type\":\"compressed\",\"row\":",
+			"{type:\"compressed\",\"row\"",
+			"]",
+			"[",
+			"}",
+			"{",
+			"}\\n",
+			"{",
+			":",
+			"\\n\"",
+			"\\n",
+			"",
+			"H",
+			"Increaser",
+			"Inc",
+			"SubRC",
+			"Noter",
+			"",
+			"kill",
+			"moveZ",
+			"moveY",
+			"movey",
+			"moveX",
+			"execute"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "oprands.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1358,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1304,
+								1304
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 156.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 130.0
+	},
+	"project": "drasm.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				".gitattributes"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 192.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 2
+	}
+}
