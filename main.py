@@ -64,11 +64,15 @@ opnames = {"mov":1, "push":1, "pop":1, "add":1, "sub":1,\
 	"jnz":1, "je":1, "loop":1, "xor":1, "shl":1, "shr":1}
 dataSegment=None
 codeSegment=None
-
+segmentLocations=sys.argv
 def p_program(t):
 	'''program : segmentList'''
 	m=list()
-	for x in t[1]:
+	for i,x in enumerate(t[1]):
+		try:
+			x.setAdress(int(segmentLocations[i+1]))
+		except IndexError:
+			x.setAdress(None)
 		for y in x.parse():
 			m.append(y.blocks)
 	exp(m,"E:\\cs\\proj\\DeepRedAssembler\\bin\\out\\program.json")
@@ -169,13 +173,14 @@ def p_literal(t):
 		t[0]=Literal(t[1])
 def p_oprand(t):
 	'''oprand : variable
-			  | literal
-			  | LBRACK literal RBRACK 
-			  | LBRACK variable RBRACK'''
-	if len(t)==3:	
-		t[0]=t[2].getEffValue()
-	else:
-		t[0]=t[1]
+			  | literal'''
+	t[0]=t[1]
+def p_oprand_adress(t):
+	'oprand : LBRACK literal RBRACK '
+	t[0]=Adress(t[2])
+def p_oprand_effAdress(t):
+	'oprand : LBRACK variable RBRACK'
+	t[0]=EffAdress(t[2])
 def p_oprandList(t):
 	'''oprandList : oprand
 				  | oprandList oprand'''

@@ -1,5 +1,4 @@
 .code
-mov AL 1
+mov AL [100]
 start:
 mov AH AL
-loop start

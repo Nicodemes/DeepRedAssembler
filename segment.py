@@ -25,7 +25,12 @@ class CodeSegment(Segment):
 			statements[i].locationInSegment=i
 			statements[i].segment=self
 	def getAdress(self):
-		return 0
+		return self.adress
+	def setAdress(self,newAdress):
+		if newAdress==None:
+			self.adress="\a"
+		else:
+			self.adress=newAdress
 	def __str__(self):
 		toRet=""
 		for x in self.statementList:

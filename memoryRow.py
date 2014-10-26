@@ -3,7 +3,7 @@ class MemoryRow:
 	def __init__(self, size=8):
 		self.size = size
 		self.blocks=list()
-		self.blocks.append("p[{exit}]()")
+		self.blocks.append("`p[{exit}]()`")
 		self.freeSlots=7
 	def addBlock(self,command):
 		if not isinstance(command,str):
@@ -19,6 +19,8 @@ class MemoryRow:
 			self.addBlock(block)
 	def seal(self):
 		self.formatLast("Cdu.Fetcher")
+		for i in range(self.freeSlots):
+			self.blocks.append('')
 	def formatLast(self,mexit):
 		self.blocks[-1]=self.blocks[-1].format(exit=mexit)
 	def __str__(self):

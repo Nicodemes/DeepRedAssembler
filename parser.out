@@ -75,21 +75,13 @@ state 0
     (3) segmentList -> . segmentList segment
     (4) segment -> . SEGMENT statementList
 
-    SEGMENT         shift and go to state 2
+    SEGMENT         shift and go to state 1
 
-    segment                        shift and go to state 1
-    program                        shift and go to state 3
-    segmentList                    shift and go to state 4
+    segmentList                    shift and go to state 2
+    segment                        shift and go to state 3
+    program                        shift and go to state 4
 
 state 1
-
-    (2) segmentList -> segment .
-
-    SEGMENT         reduce using rule 2 (segmentList -> segment .)
-    $end            reduce using rule 2 (segmentList -> segment .)
-
-
-state 2
 
     (4) segment -> SEGMENT . statementList
     (12) statementList -> . statement
@@ -98,72 +90,52 @@ state 2
     (11) statement -> . LABLE statement
     (9) opcode -> . OPCODE
 
-    LABLE           shift and go to state 7
-    OPCODE          shift and go to state 6
+    LABLE           shift and go to state 5
+    OPCODE          shift and go to state 7
 
-    statementList                  shift and go to state 5
-    opcode                         shift and go to state 8
-    statement                      shift and go to state 9
+    opcode                         shift and go to state 6
+    statement                      shift and go to state 8
+    statementList                  shift and go to state 9
 
-state 3
-
-    (0) S' -> program .
-
-
-
-state 4
+state 2
 
     (1) program -> segmentList .
     (3) segmentList -> segmentList . segment
     (4) segment -> . SEGMENT statementList
 
     $end            reduce using rule 1 (program -> segmentList .)
-    SEGMENT         shift and go to state 2
+    SEGMENT         shift and go to state 1
 
     segment                        shift and go to state 10
 
+state 3
+
+    (2) segmentList -> segment .
+
+    SEGMENT         reduce using rule 2 (segmentList -> segment .)
+    $end            reduce using rule 2 (segmentList -> segment .)
+
+
+state 4
+
+    (0) S' -> program .
+
+
+
 state 5
-
-    (4) segment -> SEGMENT statementList .
-    (13) statementList -> statementList . statement
-    (10) statement -> . opcode oprandList
-    (11) statement -> . LABLE statement
-    (9) opcode -> . OPCODE
-
-    SEGMENT         reduce using rule 4 (segment -> SEGMENT statementList .)
-    $end            reduce using rule 4 (segment -> SEGMENT statementList .)
-    LABLE           shift and go to state 7
-    OPCODE          shift and go to state 6
-
-    opcode                         shift and go to state 8
-    statement                      shift and go to state 11
-
-state 6
-
-    (9) opcode -> OPCODE .
-
-    LBRACK          reduce using rule 9 (opcode -> OPCODE .)
-    NAME            reduce using rule 9 (opcode -> OPCODE .)
-    DEC             reduce using rule 9 (opcode -> OPCODE .)
-    HEX             reduce using rule 9 (opcode -> OPCODE .)
-    BIN             reduce using rule 9 (opcode -> OPCODE .)
-    STRING          reduce using rule 9 (opcode -> OPCODE .)
-
-
-state 7
 
     (11) statement -> LABLE . statement
     (10) statement -> . opcode oprandList
     (11) statement -> . LABLE statement
     (9) opcode -> . OPCODE
 
-    LABLE           shift and go to state 7
-    OPCODE          shift and go to state 6
+    LABLE           shift and go to state 5
+    OPCODE          shift and go to state 7
 
-    opcode                         shift and go to state 8
-    statement                      shift and go to state 12
+    opcode                         shift and go to state 6
+    statement                      shift and go to state 11
 
-state 8
+state 6
 
     (10) statement -> opcode . oprandList
     (22) oprandList -> . oprand
@@ -178,19 +150,31 @@ state 8
     (16) literal -> . BIN
     (17) literal -> . STRING
 
-    LBRACK          shift and go to state 22
-    NAME            shift and go to state 14
-    DEC             shift and go to state 16
-    HEX             shift and go to state 13
-    BIN             shift and go to state 19
-    STRING          shift and go to state 20
+    LBRACK          shift and go to state 12
+    NAME            shift and go to state 16
+    DEC             shift and go to state 14
+    HEX             shift and go to state 21
+    BIN             shift and go to state 17
+    STRING          shift and go to state 19
 
-    oprand                         shift and go to state 17
-    literal                        shift and go to state 21
-    oprandList                     shift and go to state 18
-    variable                       shift and go to state 15
+    oprandList                     shift and go to state 13
+    oprand                         shift and go to state 18
+    variable                       shift and go to state 20
+    literal                        shift and go to state 15
 
-state 9
+state 7
+
+    (9) opcode -> OPCODE .
+
+    LBRACK          reduce using rule 9 (opcode -> OPCODE .)
+    NAME            reduce using rule 9 (opcode -> OPCODE .)
+    DEC             reduce using rule 9 (opcode -> OPCODE .)
+    HEX             reduce using rule 9 (opcode -> OPCODE .)
+    BIN             reduce using rule 9 (opcode -> OPCODE .)
+    STRING          reduce using rule 9 (opcode -> OPCODE .)
+
+
+state 8
 
     (12) statementList -> statement .
 
@@ -199,6 +183,22 @@ state 9
     SEGMENT         reduce using rule 12 (statementList -> statement .)
     $end            reduce using rule 12 (statementList -> statement .)
 
+
+state 9
+
+    (4) segment -> SEGMENT statementList .
+    (13) statementList -> statementList . statement
+    (10) statement -> . opcode oprandList
+    (11) statement -> . LABLE statement
+    (9) opcode -> . OPCODE
+
+    SEGMENT         reduce using rule 4 (segment -> SEGMENT statementList .)
+    $end            reduce using rule 4 (segment -> SEGMENT statementList .)
+    LABLE           shift and go to state 5
+    OPCODE          shift and go to state 7
+
+    opcode                         shift and go to state 6
+    statement                      shift and go to state 22
 
 state 10
 
@@ -210,16 +210,6 @@ state 10
 
 state 11
 
-    (13) statementList -> statementList statement .
-
-    LABLE           reduce using rule 13 (statementList -> statementList statement .)
-    OPCODE          reduce using rule 13 (statementList -> statementList statement .)
-    SEGMENT         reduce using rule 13 (statementList -> statementList statement .)
-    $end            reduce using rule 13 (statementList -> statementList statement .)
-
-
-state 12
-
     (11) statement -> LABLE statement .
 
     LABLE           reduce using rule 11 (statement -> LABLE statement .)
@@ -228,90 +218,26 @@ state 12
     $end            reduce using rule 11 (statement -> LABLE statement .)
 
 
+state 12
+
+    (20) oprand -> LBRACK . literal RBRACK
+    (21) oprand -> LBRACK . variable RBRACK
+    (14) literal -> . DEC
+    (15) literal -> . HEX
+    (16) literal -> . BIN
+    (17) literal -> . STRING
+    (8) variable -> . NAME
+
+    DEC             shift and go to state 14
+    HEX             shift and go to state 21
+    BIN             shift and go to state 17
+    STRING          shift and go to state 19
+    NAME            shift and go to state 16
+
+    variable                       shift and go to state 24
+    literal                        shift and go to state 23
+
 state 13
-
-    (15) literal -> HEX .
-
-    RBRACK          reduce using rule 15 (literal -> HEX .)
-    LBRACK          reduce using rule 15 (literal -> HEX .)
-    NAME            reduce using rule 15 (literal -> HEX .)
-    DEC             reduce using rule 15 (literal -> HEX .)
-    HEX             reduce using rule 15 (literal -> HEX .)
-    BIN             reduce using rule 15 (literal -> HEX .)
-    STRING          reduce using rule 15 (literal -> HEX .)
-    LABLE           reduce using rule 15 (literal -> HEX .)
-    OPCODE          reduce using rule 15 (literal -> HEX .)
-    SEGMENT         reduce using rule 15 (literal -> HEX .)
-    $end            reduce using rule 15 (literal -> HEX .)
-
-
-state 14
-
-    (8) variable -> NAME .
-
-    LBRACK          reduce using rule 8 (variable -> NAME .)
-    NAME            reduce using rule 8 (variable -> NAME .)
-    DEC             reduce using rule 8 (variable -> NAME .)
-    HEX             reduce using rule 8 (variable -> NAME .)
-    BIN             reduce using rule 8 (variable -> NAME .)
-    STRING          reduce using rule 8 (variable -> NAME .)
-    LABLE           reduce using rule 8 (variable -> NAME .)
-    OPCODE          reduce using rule 8 (variable -> NAME .)
-    SEGMENT         reduce using rule 8 (variable -> NAME .)
-    $end            reduce using rule 8 (variable -> NAME .)
-    RBRACK          reduce using rule 8 (variable -> NAME .)
-
-
-state 15
-
-    (18) oprand -> variable .
-
-    LBRACK          reduce using rule 18 (oprand -> variable .)
-    NAME            reduce using rule 18 (oprand -> variable .)
-    DEC             reduce using rule 18 (oprand -> variable .)
-    HEX             reduce using rule 18 (oprand -> variable .)
-    BIN             reduce using rule 18 (oprand -> variable .)
-    STRING          reduce using rule 18 (oprand -> variable .)
-    LABLE           reduce using rule 18 (oprand -> variable .)
-    OPCODE          reduce using rule 18 (oprand -> variable .)
-    SEGMENT         reduce using rule 18 (oprand -> variable .)
-    $end            reduce using rule 18 (oprand -> variable .)
-
-
-state 16
-
-    (14) literal -> DEC .
-
-    RBRACK          reduce using rule 14 (literal -> DEC .)
-    LBRACK          reduce using rule 14 (literal -> DEC .)
-    NAME            reduce using rule 14 (literal -> DEC .)
-    DEC             reduce using rule 14 (literal -> DEC .)
-    HEX             reduce using rule 14 (literal -> DEC .)
-    BIN             reduce using rule 14 (literal -> DEC .)
-    STRING          reduce using rule 14 (literal -> DEC .)
-    LABLE           reduce using rule 14 (literal -> DEC .)
-    OPCODE          reduce using rule 14 (literal -> DEC .)
-    SEGMENT         reduce using rule 14 (literal -> DEC .)
-    $end            reduce using rule 14 (literal -> DEC .)
-
-
-state 17
-
-    (22) oprandList -> oprand .
-
-    LBRACK          reduce using rule 22 (oprandList -> oprand .)
-    NAME            reduce using rule 22 (oprandList -> oprand .)
-    DEC             reduce using rule 22 (oprandList -> oprand .)
-    HEX             reduce using rule 22 (oprandList -> oprand .)
-    BIN             reduce using rule 22 (oprandList -> oprand .)
-    STRING          reduce using rule 22 (oprandList -> oprand .)
-    LABLE           reduce using rule 22 (oprandList -> oprand .)
-    OPCODE          reduce using rule 22 (oprandList -> oprand .)
-    SEGMENT         reduce using rule 22 (oprandList -> oprand .)
-    $end            reduce using rule 22 (oprandList -> oprand .)
-
-
-state 18
 
     (10) statement -> opcode oprandList .
     (23) oprandList -> oprandList . oprand
@@ -329,52 +255,35 @@ state 18
     OPCODE          reduce using rule 10 (statement -> opcode oprandList .)
     SEGMENT         reduce using rule 10 (statement -> opcode oprandList .)
     $end            reduce using rule 10 (statement -> opcode oprandList .)
-    LBRACK          shift and go to state 22
-    NAME            shift and go to state 14
-    DEC             shift and go to state 16
-    HEX             shift and go to state 13
-    BIN             shift and go to state 19
-    STRING          shift and go to state 20
+    LBRACK          shift and go to state 12
+    NAME            shift and go to state 16
+    DEC             shift and go to state 14
+    HEX             shift and go to state 21
+    BIN             shift and go to state 17
+    STRING          shift and go to state 19
 
-    oprand                         shift and go to state 23
-    literal                        shift and go to state 21
-    variable                       shift and go to state 15
+    oprand                         shift and go to state 25
+    variable                       shift and go to state 20
+    literal                        shift and go to state 15
 
-state 19
+state 14
 
-    (16) literal -> BIN .
+    (14) literal -> DEC .
 
-    RBRACK          reduce using rule 16 (literal -> BIN .)
-    LBRACK          reduce using rule 16 (literal -> BIN .)
-    NAME            reduce using rule 16 (literal -> BIN .)
-    DEC             reduce using rule 16 (literal -> BIN .)
-    HEX             reduce using rule 16 (literal -> BIN .)
-    BIN             reduce using rule 16 (literal -> BIN .)
-    STRING          reduce using rule 16 (literal -> BIN .)
-    LABLE           reduce using rule 16 (literal -> BIN .)
-    OPCODE          reduce using rule 16 (literal -> BIN .)
-    SEGMENT         reduce using rule 16 (literal -> BIN .)
-    $end            reduce using rule 16 (literal -> BIN .)
-
-
-state 20
-
-    (17) literal -> STRING .
-
-    RBRACK          reduce using rule 17 (literal -> STRING .)
-    LBRACK          reduce using rule 17 (literal -> STRING .)
-    NAME            reduce using rule 17 (literal -> STRING .)
-    DEC             reduce using rule 17 (literal -> STRING .)
-    HEX             reduce using rule 17 (literal -> STRING .)
-    BIN             reduce using rule 17 (literal -> STRING .)
-    STRING          reduce using rule 17 (literal -> STRING .)
-    LABLE           reduce using rule 17 (literal -> STRING .)
-    OPCODE          reduce using rule 17 (literal -> STRING .)
-    SEGMENT         reduce using rule 17 (literal -> STRING .)
-    $end            reduce using rule 17 (literal -> STRING .)
+    LBRACK          reduce using rule 14 (literal -> DEC .)
+    NAME            reduce using rule 14 (literal -> DEC .)
+    DEC             reduce using rule 14 (literal -> DEC .)
+    HEX             reduce using rule 14 (literal -> DEC .)
+    BIN             reduce using rule 14 (literal -> DEC .)
+    STRING          reduce using rule 14 (literal -> DEC .)
+    LABLE           reduce using rule 14 (literal -> DEC .)
+    OPCODE          reduce using rule 14 (literal -> DEC .)
+    SEGMENT         reduce using rule 14 (literal -> DEC .)
+    $end            reduce using rule 14 (literal -> DEC .)
+    RBRACK          reduce using rule 14 (literal -> DEC .)
 
 
-state 21
+state 15
 
     (19) oprand -> literal .
 
@@ -390,26 +299,131 @@ state 21
     $end            reduce using rule 19 (oprand -> literal .)
 
 
+state 16
+
+    (8) variable -> NAME .
+
+    LBRACK          reduce using rule 8 (variable -> NAME .)
+    NAME            reduce using rule 8 (variable -> NAME .)
+    DEC             reduce using rule 8 (variable -> NAME .)
+    HEX             reduce using rule 8 (variable -> NAME .)
+    BIN             reduce using rule 8 (variable -> NAME .)
+    STRING          reduce using rule 8 (variable -> NAME .)
+    LABLE           reduce using rule 8 (variable -> NAME .)
+    OPCODE          reduce using rule 8 (variable -> NAME .)
+    SEGMENT         reduce using rule 8 (variable -> NAME .)
+    $end            reduce using rule 8 (variable -> NAME .)
+    RBRACK          reduce using rule 8 (variable -> NAME .)
+
+
+state 17
+
+    (16) literal -> BIN .
+
+    LBRACK          reduce using rule 16 (literal -> BIN .)
+    NAME            reduce using rule 16 (literal -> BIN .)
+    DEC             reduce using rule 16 (literal -> BIN .)
+    HEX             reduce using rule 16 (literal -> BIN .)
+    BIN             reduce using rule 16 (literal -> BIN .)
+    STRING          reduce using rule 16 (literal -> BIN .)
+    LABLE           reduce using rule 16 (literal -> BIN .)
+    OPCODE          reduce using rule 16 (literal -> BIN .)
+    SEGMENT         reduce using rule 16 (literal -> BIN .)
+    $end            reduce using rule 16 (literal -> BIN .)
+    RBRACK          reduce using rule 16 (literal -> BIN .)
+
+
+state 18
+
+    (22) oprandList -> oprand .
+
+    LBRACK          reduce using rule 22 (oprandList -> oprand .)
+    NAME            reduce using rule 22 (oprandList -> oprand .)
+    DEC             reduce using rule 22 (oprandList -> oprand .)
+    HEX             reduce using rule 22 (oprandList -> oprand .)
+    BIN             reduce using rule 22 (oprandList -> oprand .)
+    STRING          reduce using rule 22 (oprandList -> oprand .)
+    LABLE           reduce using rule 22 (oprandList -> oprand .)
+    OPCODE          reduce using rule 22 (oprandList -> oprand .)
+    SEGMENT         reduce using rule 22 (oprandList -> oprand .)
+    $end            reduce using rule 22 (oprandList -> oprand .)
+
+
+state 19
+
+    (17) literal -> STRING .
+
+    LBRACK          reduce using rule 17 (literal -> STRING .)
+    NAME            reduce using rule 17 (literal -> STRING .)
+    DEC             reduce using rule 17 (literal -> STRING .)
+    HEX             reduce using rule 17 (literal -> STRING .)
+    BIN             reduce using rule 17 (literal -> STRING .)
+    STRING          reduce using rule 17 (literal -> STRING .)
+    LABLE           reduce using rule 17 (literal -> STRING .)
+    OPCODE          reduce using rule 17 (literal -> STRING .)
+    SEGMENT         reduce using rule 17 (literal -> STRING .)
+    $end            reduce using rule 17 (literal -> STRING .)
+    RBRACK          reduce using rule 17 (literal -> STRING .)
+
+
+state 20
+
+    (18) oprand -> variable .
+
+    LBRACK          reduce using rule 18 (oprand -> variable .)
+    NAME            reduce using rule 18 (oprand -> variable .)
+    DEC             reduce using rule 18 (oprand -> variable .)
+    HEX             reduce using rule 18 (oprand -> variable .)
+    BIN             reduce using rule 18 (oprand -> variable .)
+    STRING          reduce using rule 18 (oprand -> variable .)
+    LABLE           reduce using rule 18 (oprand -> variable .)
+    OPCODE          reduce using rule 18 (oprand -> variable .)
+    SEGMENT         reduce using rule 18 (oprand -> variable .)
+    $end            reduce using rule 18 (oprand -> variable .)
+
+
+state 21
+
+    (15) literal -> HEX .
+
+    LBRACK          reduce using rule 15 (literal -> HEX .)
+    NAME            reduce using rule 15 (literal -> HEX .)
+    DEC             reduce using rule 15 (literal -> HEX .)
+    HEX             reduce using rule 15 (literal -> HEX .)
+    BIN             reduce using rule 15 (literal -> HEX .)
+    STRING          reduce using rule 15 (literal -> HEX .)
+    LABLE           reduce using rule 15 (literal -> HEX .)
+    OPCODE          reduce using rule 15 (literal -> HEX .)
+    SEGMENT         reduce using rule 15 (literal -> HEX .)
+    $end            reduce using rule 15 (literal -> HEX .)
+    RBRACK          reduce using rule 15 (literal -> HEX .)
+
+
 state 22
 
-    (20) oprand -> LBRACK . literal RBRACK
-    (21) oprand -> LBRACK . variable RBRACK
-    (14) literal -> . DEC
-    (15) literal -> . HEX
-    (16) literal -> . BIN
-    (17) literal -> . STRING
-    (8) variable -> . NAME
+    (13) statementList -> statementList statement .
 
-    DEC             shift and go to state 16
-    HEX             shift and go to state 13
-    BIN             shift and go to state 19
-    STRING          shift and go to state 20
-    NAME            shift and go to state 14
+    LABLE           reduce using rule 13 (statementList -> statementList statement .)
+    OPCODE          reduce using rule 13 (statementList -> statementList statement .)
+    SEGMENT         reduce using rule 13 (statementList -> statementList statement .)
+    $end            reduce using rule 13 (statementList -> statementList statement .)
 
-    literal                        shift and go to state 25
-    variable                       shift and go to state 24
 
 state 23
+
+    (20) oprand -> LBRACK literal . RBRACK
+
+    RBRACK          shift and go to state 26
+
+
+state 24
+
+    (21) oprand -> LBRACK variable . RBRACK
+
+    RBRACK          shift and go to state 27
+
+
+state 25
 
     (23) oprandList -> oprandList oprand .
 
@@ -425,37 +439,7 @@ state 23
     $end            reduce using rule 23 (oprandList -> oprandList oprand .)
 
 
-state 24
-
-    (21) oprand -> LBRACK variable . RBRACK
-
-    RBRACK          shift and go to state 26
-
-
-state 25
-
-    (20) oprand -> LBRACK literal . RBRACK
-
-    RBRACK          shift and go to state 27
-
-
 state 26
-
-    (21) oprand -> LBRACK variable RBRACK .
-
-    LBRACK          reduce using rule 21 (oprand -> LBRACK variable RBRACK .)
-    NAME            reduce using rule 21 (oprand -> LBRACK variable RBRACK .)
-    DEC             reduce using rule 21 (oprand -> LBRACK variable RBRACK .)
-    HEX             reduce using rule 21 (oprand -> LBRACK variable RBRACK .)
-    BIN             reduce using rule 21 (oprand -> LBRACK variable RBRACK .)
-    STRING          reduce using rule 21 (oprand -> LBRACK variable RBRACK .)
-    LABLE           reduce using rule 21 (oprand -> LBRACK variable RBRACK .)
-    OPCODE          reduce using rule 21 (oprand -> LBRACK variable RBRACK .)
-    SEGMENT         reduce using rule 21 (oprand -> LBRACK variable RBRACK .)
-    $end            reduce using rule 21 (oprand -> LBRACK variable RBRACK .)
-
-
-state 27
 
     (20) oprand -> LBRACK literal RBRACK .
 
@@ -469,4 +453,20 @@ state 27
     OPCODE          reduce using rule 20 (oprand -> LBRACK literal RBRACK .)
     SEGMENT         reduce using rule 20 (oprand -> LBRACK literal RBRACK .)
     $end            reduce using rule 20 (oprand -> LBRACK literal RBRACK .)
+
+
+state 27
+
+    (21) oprand -> LBRACK variable RBRACK .
+
+    LBRACK          reduce using rule 21 (oprand -> LBRACK variable RBRACK .)
+    NAME            reduce using rule 21 (oprand -> LBRACK variable RBRACK .)
+    DEC             reduce using rule 21 (oprand -> LBRACK variable RBRACK .)
+    HEX             reduce using rule 21 (oprand -> LBRACK variable RBRACK .)
+    BIN             reduce using rule 21 (oprand -> LBRACK variable RBRACK .)
+    STRING          reduce using rule 21 (oprand -> LBRACK variable RBRACK .)
+    LABLE           reduce using rule 21 (oprand -> LBRACK variable RBRACK .)
+    OPCODE          reduce using rule 21 (oprand -> LBRACK variable RBRACK .)
+    SEGMENT         reduce using rule 21 (oprand -> LBRACK variable RBRACK .)
+    $end            reduce using rule 21 (oprand -> LBRACK variable RBRACK .)
 

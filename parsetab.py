@@ -5,9 +5,9 @@ _tabversion = '3.2'
 
 _lr_method = 'LALR'
 
-_lr_signature = b'\xb5\x8c\x1d @\r\x12\xedNh\x01H&\xae\x8b\xf1'
+_lr_signature = b'\xd19UZ\x1e%\xe6\xa0\xbb\xe2\xe9\xaf\xe1]\xcb,'
     
-_lr_action_items = {'HEX':([6,8,13,14,15,16,17,18,19,20,21,22,23,26,27,],[-9,13,-15,-8,-18,-14,-22,13,-16,-17,-19,13,-23,-21,-20,]),'RBRACK':([13,14,16,19,20,24,25,],[-15,-8,-14,-16,-17,26,27,]),'$end':([1,3,4,5,9,10,11,12,13,14,15,16,17,18,19,20,21,23,26,27,],[-2,0,-1,-4,-12,-3,-13,-11,-15,-8,-18,-14,-22,-10,-16,-17,-19,-23,-21,-20,]),'NAME':([6,8,13,14,15,16,17,18,19,20,21,22,23,26,27,],[-9,14,-15,-8,-18,-14,-22,14,-16,-17,-19,14,-23,-21,-20,]),'OPCODE':([2,5,7,9,11,12,13,14,15,16,17,18,19,20,21,23,26,27,],[6,6,6,-12,-13,-11,-15,-8,-18,-14,-22,-10,-16,-17,-19,-23,-21,-20,]),'DEC':([6,8,13,14,15,16,17,18,19,20,21,22,23,26,27,],[-9,16,-15,-8,-18,-14,-22,16,-16,-17,-19,16,-23,-21,-20,]),'BIN':([6,8,13,14,15,16,17,18,19,20,21,22,23,26,27,],[-9,19,-15,-8,-18,-14,-22,19,-16,-17,-19,19,-23,-21,-20,]),'SEGMENT':([0,1,4,5,9,10,11,12,13,14,15,16,17,18,19,20,21,23,26,27,],[2,-2,2,-4,-12,-3,-13,-11,-15,-8,-18,-14,-22,-10,-16,-17,-19,-23,-21,-20,]),'STRING':([6,8,13,14,15,16,17,18,19,20,21,22,23,26,27,],[-9,20,-15,-8,-18,-14,-22,20,-16,-17,-19,20,-23,-21,-20,]),'LABLE':([2,5,7,9,11,12,13,14,15,16,17,18,19,20,21,23,26,27,],[7,7,7,-12,-13,-11,-15,-8,-18,-14,-22,-10,-16,-17,-19,-23,-21,-20,]),'LBRACK':([6,8,13,14,15,16,17,18,19,20,21,23,26,27,],[-9,22,-15,-8,-18,-14,-22,22,-16,-17,-19,-23,-21,-20,]),}
+_lr_action_items = {'LBRACK':([6,7,13,14,15,16,17,18,19,20,21,25,26,27,],[12,-9,12,-14,-19,-8,-16,-22,-17,-18,-15,-23,-20,-21,]),'LABLE':([1,5,8,9,11,13,14,15,16,17,18,19,20,21,22,25,26,27,],[5,5,-12,5,-11,-10,-14,-19,-8,-16,-22,-17,-18,-15,-13,-23,-20,-21,]),'DEC':([6,7,12,13,14,15,16,17,18,19,20,21,25,26,27,],[14,-9,14,14,-14,-19,-8,-16,-22,-17,-18,-15,-23,-20,-21,]),'NAME':([6,7,12,13,14,15,16,17,18,19,20,21,25,26,27,],[16,-9,16,16,-14,-19,-8,-16,-22,-17,-18,-15,-23,-20,-21,]),'RBRACK':([14,16,17,19,21,23,24,],[-14,-8,-16,-17,-15,26,27,]),'HEX':([6,7,12,13,14,15,16,17,18,19,20,21,25,26,27,],[21,-9,21,21,-14,-19,-8,-16,-22,-17,-18,-15,-23,-20,-21,]),'SEGMENT':([0,2,3,8,9,10,11,13,14,15,16,17,18,19,20,21,22,25,26,27,],[1,1,-2,-12,-4,-3,-11,-10,-14,-19,-8,-16,-22,-17,-18,-15,-13,-23,-20,-21,]),'BIN':([6,7,12,13,14,15,16,17,18,19,20,21,25,26,27,],[17,-9,17,17,-14,-19,-8,-16,-22,-17,-18,-15,-23,-20,-21,]),'OPCODE':([1,5,8,9,11,13,14,15,16,17,18,19,20,21,22,25,26,27,],[7,7,-12,7,-11,-10,-14,-19,-8,-16,-22,-17,-18,-15,-13,-23,-20,-21,]),'STRING':([6,7,12,13,14,15,16,17,18,19,20,21,25,26,27,],[19,-9,19,19,-14,-19,-8,-16,-22,-17,-18,-15,-23,-20,-21,]),'$end':([2,3,4,8,9,10,11,13,14,15,16,17,18,19,20,21,22,25,26,27,],[-1,-2,0,-12,-4,-3,-11,-10,-14,-19,-8,-16,-22,-17,-18,-15,-13,-23,-20,-21,]),}
 
 _lr_action = { }
 for _k, _v in _lr_action_items.items():
@@ -16,7 +16,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'statementList':([2,],[5,]),'oprandList':([8,],[18,]),'segmentList':([0,],[4,]),'variable':([8,18,22,],[15,15,24,]),'segment':([0,4,],[1,10,]),'program':([0,],[3,]),'opcode':([2,5,7,],[8,8,8,]),'oprand':([8,18,],[17,23,]),'statement':([2,5,7,],[9,11,12,]),'literal':([8,18,22,],[21,21,25,]),}
+_lr_goto_items = {'oprandList':([6,],[13,]),'oprand':([6,13,],[18,25,]),'variable':([6,12,13,],[20,24,20,]),'opcode':([1,5,9,],[6,6,6,]),'segmentList':([0,],[2,]),'literal':([6,12,13,],[15,23,15,]),'statement':([1,5,9,],[8,11,22,]),'segment':([0,2,],[3,10,]),'program':([0,],[4,]),'statementList':([1,],[9,]),}
 
 _lr_goto = { }
 for _k, _v in _lr_goto_items.items():
@@ -26,27 +26,27 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> program","S'",1,None,None,None),
-  ('program -> segmentList','program',1,'p_program','main.py',59),
-  ('segmentList -> segment','segmentList',1,'p_segmentList','main.py',63),
-  ('segmentList -> segmentList segment','segmentList',2,'p_segmentList','main.py',64),
-  ('segment -> SEGMENT statementList','segment',2,'p_segment','main.py',73),
-  ('dataList -> varassign','dataList',1,'p_dataList','main.py',84),
-  ('dataList -> dataList varassign','dataList',2,'p_dataList','main.py',85),
-  ('varassign -> VARNAME DECLVAR literal','varassign',3,'p_varassign','main.py',97),
-  ('variable -> NAME','variable',1,'p_variable','main.py',107),
-  ('opcode -> OPCODE','opcode',1,'p_opcode','main.py',112),
-  ('statement -> opcode oprandList','statement',2,'p_statement','main.py',121),
-  ('statement -> LABLE statement','statement',2,'p_statement_labled','main.py',124),
-  ('statementList -> statement','statementList',1,'p_statementList','main.py',128),
-  ('statementList -> statementList statement','statementList',2,'p_statementList','main.py',129),
-  ('literal -> DEC','literal',1,'p_literal','main.py',140),
-  ('literal -> HEX','literal',1,'p_literal','main.py',141),
-  ('literal -> BIN','literal',1,'p_literal','main.py',142),
-  ('literal -> STRING','literal',1,'p_literal','main.py',143),
-  ('oprand -> variable','oprand',1,'p_oprand','main.py',150),
-  ('oprand -> literal','oprand',1,'p_oprand','main.py',151),
-  ('oprand -> LBRACK literal RBRACK','oprand',3,'p_oprand','main.py',152),
-  ('oprand -> LBRACK variable RBRACK','oprand',3,'p_oprand','main.py',153),
-  ('oprandList -> oprand','oprandList',1,'p_oprandList','main.py',159),
-  ('oprandList -> oprandList oprand','oprandList',2,'p_oprandList','main.py',160),
+  ('program -> segmentList','program',1,'p_program','main.py',69),
+  ('segmentList -> segment','segmentList',1,'p_segmentList','main.py',80),
+  ('segmentList -> segmentList segment','segmentList',2,'p_segmentList','main.py',81),
+  ('segment -> SEGMENT statementList','segment',2,'p_segment','main.py',90),
+  ('dataList -> varassign','dataList',1,'p_dataList','main.py',101),
+  ('dataList -> dataList varassign','dataList',2,'p_dataList','main.py',102),
+  ('varassign -> VARNAME DECLVAR literal','varassign',3,'p_varassign','main.py',114),
+  ('variable -> NAME','variable',1,'p_variable','main.py',124),
+  ('opcode -> OPCODE','opcode',1,'p_opcode','main.py',131),
+  ('statement -> opcode oprandList','statement',2,'p_statement','main.py',140),
+  ('statement -> LABLE statement','statement',2,'p_statement_labled','main.py',146),
+  ('statementList -> statement','statementList',1,'p_statementList','main.py',152),
+  ('statementList -> statementList statement','statementList',2,'p_statementList','main.py',153),
+  ('literal -> DEC','literal',1,'p_literal','main.py',166),
+  ('literal -> HEX','literal',1,'p_literal','main.py',167),
+  ('literal -> BIN','literal',1,'p_literal','main.py',168),
+  ('literal -> STRING','literal',1,'p_literal','main.py',169),
+  ('oprand -> variable','oprand',1,'p_oprand','main.py',175),
+  ('oprand -> literal','oprand',1,'p_oprand','main.py',176),
+  ('oprand -> LBRACK literal RBRACK','oprand',3,'p_oprand_adress','main.py',179),
+  ('oprand -> LBRACK variable RBRACK','oprand',3,'p_oprand_effAdress','main.py',182),
+  ('oprandList -> oprand','oprandList',1,'p_oprandList','main.py',185),
+  ('oprandList -> oprandList oprand','oprandList',2,'p_oprandList','main.py',186),
 ]

@@ -15,7 +15,10 @@ class Statement(interfaces.IAdressable):
 		self.lable=lable
 
 	def getAdress(self):
-		return self.segment.getAdress() + self.locationInSegment	
+		x=self.segment.getAdress()
+		if isinstance( x, str):
+			return x + "+"+str(self.locationInSegment)	
+		return x + self.locationInSegment
 	def __str__(self):
 		if self.lable != None:
 			toRet=str(self.lable)+" "
@@ -33,13 +36,18 @@ class Statement(interfaces.IAdressable):
 		command=self.opcodeName.title()
 		toRet=list()
 		for i,op in enumerate(self.oprands):
-			if isinstance(op,Oprand):
+			if isinstance(op, EffAdress):
+				raise Exception("unimplamented")
+			elif isinstance(op, Adress):
+				command+="A"
+				toRet.append("`Cdu.arg({0},8).set(Literal({1}))`".format(i,op.getAdress()))
+			elif isinstance(op,Literal):
 				command+="C"
 				toRet.append("`Cdu.arg({0},8).set(Literal({1}))`".format(i,op.getValue()))
 
 			elif isinstance(op,Register):
 				command+="R"
-				toRet.append("`RegRef{}.origin({})`".format(i+1,op.name))
+				toRet.append("`regRef{}.origin({})`".format(i+1,op.name))
 		toRet.append(command+"(p[{exit}])")
 		return toRet
 class LoopStatement(Statement):
@@ -47,10 +55,14 @@ class LoopStatement(Statement):
 		Statement.__init__(self, opcodeName, segment,oprands,locationInSegment,lable)
 	def transform(self):
 		toRet=list()
-		if isinstance(self.oprands[0],Literal):
-			toRet.append("Cdu.arg(0,8).set(Literal({value})".format(value=self.oprands[0].getValue()))
+		op=self.oprands[0]
+		if isinstance(op, Adress):
+			toRet.append("`Cdu.arg(0,8).set(Literal({}))`".format(op.getAdress()))
+		elif isinstance(op,Literal):
+			toRet.append("`Cdu.arg(0,8).set(Literal({}))`".format(op.getValue()))
+
 		elif isinstance(self.oprands[0],Register):
 			raise Exception("loop takes only constatns")
-		toRet+=("RegRef1.origin(counterRegister)","DecR(p[{exit}])","flags.zero.setFalse()","RegRef1.checkZero()","JzC({exit})")
+		toRet+=("`RegRef1.origin(counterRegister)`","`DecR(p[3])`","`flags.zero.setFalse()`","`regRef1.checkZero()`","`JzA({exit})`")
 
 		return toRet
