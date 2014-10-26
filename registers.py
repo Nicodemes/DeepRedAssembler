@@ -1,14 +1,16 @@
 class Register():
-	def __init__(self):
-		pass
-	
+	def __init__(self,name):
+		self.name=name
+	def getValue(self):
+		return self
+
 generalPurpase={
-"AL":Register(),\
-"AH":Register(),\
-"BL":Register(),\
-"BH":Register(),\
-"CL":Register(),\
-"CH":Register(),\
-"DL":Register(),\
-"DH":Register()
+"AL":Register("AL"),\
+"AH":Register("AH"),\
+"BL":Register("BL"),\
+"BH":Register("BH"),\
+"CL":Register("CL"),\
+"CH":Register("CH"),\
+"DL":Register("DL"),\
+"DH":Register("DH")
 }

@@ -1,0 +1,4 @@
+[
+["p[3]()", "`RegRef1.origin(AL)`", "`Cdu.arg(1,8).set(Literal(1))`", "MovRC(p[Cdu.Fetcher])"],
+ ["p[3]()", "`RegRef1.origin(AH)`", "`RegRef2.origin(AL)`", "MovRR(p[Cdu.Fetcher])"],
+ ["p[5]()", "RegRef1.origin(counterRegister)", "DecR(p[{exit}])", "flags.zero.setFalse()", "RegRef1.checkZero()", "JzC(Cdu.Fetcher)"]]

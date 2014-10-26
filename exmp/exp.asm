@@ -3,7 +3,6 @@ msg	db	"Hello World$"
 numbin db 0b00001
 numoct db 0123453
 numhex db 0x000A1
-numun db ?
 
 .code
 start:

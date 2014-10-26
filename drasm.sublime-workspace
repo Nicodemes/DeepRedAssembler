@@ -4,28 +4,56 @@
 		"selected_items":
 		[
 			[
-				"va",
-				"value"
+				"opra",
+				"oprands"
+			],
+			[
+				"state",
+				"state"
+			],
+			[
+				"opcde",
+				"opcodeName"
+			],
+			[
+				"loca",
+				"locationInSegment"
+			],
+			[
+				"dat",
+				"dataList"
 			],
 			[
 				"vara",
 				"variables"
 			],
 			[
-				"state",
-				"statements"
+				"ope",
+				"open	open"
 			],
 			[
-				"opra",
-				"oprandList"
+				"stat",
+				"statement"
+			],
+			[
+				"seg",
+				"segment"
+			],
+			[
+				"segme",
+				"segmentList"
+			],
+			[
+				"data",
+				"dataSegment"
+			],
+			[
+				"va",
+				"value"
 			],
 			[
 				"code",
 				"codeSegment"
-			],
-			[
-				"loca",
-				"locationInSegment"
 			],
 			[
 				"imp",
@@ -34,10 +62,6 @@
 			[
 				"Op",
 				"OPCODE"
-			],
-			[
-				"data",
-				"dataList"
 			],
 			[
 				"var",
@@ -455,11 +479,19 @@
 		"selected_items":
 		[
 			[
-				"ta",
+				"tabs",
 				"Indentation: Convert to Tabs"
 			],
 			[
-				"tabs",
+				"git co",
+				"Git: Commit"
+			],
+			[
+				"git ad",
+				"Git: Add..."
+			],
+			[
+				"ta",
 				"Indentation: Convert to Tabs"
 			],
 			[
@@ -503,16 +535,8 @@
 				"Package Control: Remove Package"
 			],
 			[
-				"git co",
-				"Git: Commit"
-			],
-			[
 				"git com",
 				"Git: Commit"
-			],
-			[
-				"git ad",
-				"Git: Add..."
 			],
 			[
 				"git add",
@@ -603,9 +627,13 @@
 	},
 	"console":
 	{
-		"height": 153.0,
+		"height": 60.0,
 		"history":
 		[
+			"\"asd\".upper()",
+			"\"asd\".upper9)",
+			"\"hello\"[:1+1]",
+			"\"hello\"[:1]",
 			"for i, x in enumerate(sk)",
 			"for i, x in enumerate(sk):\\n\\t if i >1:\\n\\t\\tn+=x",
 			"for i, x in enumerate(sk):\\n if i >1:\\n+=x",
@@ -648,25 +676,30 @@
 	],
 	"file_history":
 	[
-		"/E/cs/proj/DeepRedAssembler/interfaces.py",
-		"/E/cs/proj/DeepRedAssembler/registers.py",
-		"/E/cs/proj/DeepRedAssembler/oprands.py",
-		"/E/cs/proj/DeepRedAssembler/statement.py",
 		"/E/cs/proj/DeepRedAssembler/segment.py",
 		"/E/cs/proj/DeepRedAssembler/main.py",
+		"/E/cs/proj/DeepRedAssembler/statement.py",
+		"/E/cs/proj/DeepRedAssembler/bin/test.asm",
+		"/E/cs/proj/DeepRedAssembler/registers.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_cmp_cdu.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/common.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/data/opcodes.json",
+		"/E/cs/proj/DeepRedAssembler/oprands.py",
+		"/E/cs/proj/DeepRedAssembler/drasm.sublime-project",
+		"/E/cs/proj/DeepRedAssembler/exmp/exp.asm",
+		"/E/cs/proj/DeepRedAssembler/parser.out",
+		"/E/cs/proj/DeepRedAssembler/parsetab.py",
+		"/E/cs/proj/DeepRedAssembler/opcodes.py",
+		"/E/cs/proj/DeepRedAssembler/interfaces.py",
 		"/C/Users/Alice/AppData/Roaming/Sublime Text 3/Settings/SideBarEnhancements.json",
 		"/E/cs/proj/DeepRedAssembler/COMMIT_EDITMSG.COMMIT_EDITMSG",
 		"/C/Users/Alice/AppData/Roaming/Sublime Text 3/Packages/User/fold1.py",
-		"/E/cs/proj/DeepRedAssembler/exmp/exp.asm",
 		"/C/Users/Alice/AppData/Roaming/Sublime Text 3/Packages/User/untitled.sublime-build",
 		"/E/cs/proj/DeepRedAssembler/.gitattributes",
 		"/E/cs/proj/DeepRedAssembler/ply-3.4.tar.gz",
-		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/data/opcodes.json",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/CommandReplace.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/Build_CPU.py",
-		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/common.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_cmp_logic.py",
-		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_cmp_cdu.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_ref.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_cmp_calc.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpucalc.py",
@@ -762,7 +795,7 @@
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 36.0
 	},
 	"find_in_files":
 	{
@@ -777,6 +810,15 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"illigal",
+			"	traceback.print_exc()",
+			"\":1, \"",
+			":1, ",
+			",",
+			")",
+			"(\"mov)\"push)\"pop)\"add)\"sub)\"inc)\"dec)\"neg)\"lea)\"int)\"jmp)\"jz)\"jnz)\"je)\"loop)\"xor)\"shl)\"shr))",
+			")",
+			"(",
 			"A",
 			"a",
 			"SUP",
@@ -859,6 +901,12 @@
 		"regex": false,
 		"replace_history":
 		[
+			"|",
+			":1,",
+			"\", ",
+			"\",  ",
+			"\", ",
+			"\"",
 			"B",
 			"b",
 			"cpu_cmp_calc",
@@ -930,7 +978,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 27.0
+		"height": 28.0
 	},
 	"input":
 	{
@@ -961,7 +1009,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 156.0
+		"height": 154.0
 	},
 	"output.find_results":
 	{
@@ -974,7 +1022,7 @@
 	"project": "drasm.sublime-project",
 	"replace":
 	{
-		"height": 64.0
+		"height": 66.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -984,7 +1032,11 @@
 		[
 			[
 				"",
-				".gitattributes"
+				"main.py"
+			],
+			[
+				"ta",
+				"statement.py"
 			]
 		],
 		"width": 0.0
