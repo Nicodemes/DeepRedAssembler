@@ -140,6 +140,7 @@ def p_statement(t):
 	'statement : opcode oprandList'
 	if t[1]=='loop':
 		t[0]=LoopStatement(t[1],codeSegment,t[2])
+	elif t[1]=='int':
 	else:
 		t[0]=Statement(t[1],codeSegment,t[2])
 def p_statement_labled(t):

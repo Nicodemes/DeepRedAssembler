@@ -4,12 +4,64 @@
 		"selected_items":
 		[
 			[
-				"opra",
-				"oprands"
+				"int",
+				"int16"
+			],
+			[
+				"var",
+				"var"
+			],
+			[
+				"opo",
+				"opcodes"
+			],
+			[
+				"get",
+				"getAdress"
+			],
+			[
+				"pro",
+				"program_loader"
+			],
+			[
+				"file",
+				"fileName"
+			],
+			[
+				"new",
+				"newAdress"
+			],
+			[
+				"sg",
+				"segmentLocations"
+			],
+			[
+				"is",
+				"isinstance	isinstance"
+			],
+			[
+				"blok",
+				"blocks"
 			],
 			[
 				"state",
-				"state"
+				"statement"
+			],
+			[
+				"add",
+				"addStatement"
+			],
+			[
+				"statem",
+				"statement"
+			],
+			[
+				"form",
+				"formatLast"
+			],
+			[
+				"opra",
+				"oprands"
 			],
 			[
 				"opcde",
@@ -64,16 +116,8 @@
 				"OPCODE"
 			],
 			[
-				"var",
-				"variable"
-			],
-			[
 				"opr",
 				"oprand"
-			],
-			[
-				"get",
-				"getValue"
 			],
 			[
 				"opran",
@@ -114,10 +158,6 @@
 			[
 				"way",
 				"wayName"
-			],
-			[
-				"is",
-				"isActive"
 			],
 			[
 				"in",
@@ -471,6 +511,30 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "main.py",
+			"settings":
+			{
+				"buffer_size": 4429,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "statement.py",
+			"settings":
+			{
+				"buffer_size": 2153,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "interupts.py",
+			"settings":
+			{
+				"buffer_size": 380,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "Packages/User/untitled.sublime-build",
 	"command_palette":
@@ -627,9 +691,13 @@
 	},
 	"console":
 	{
-		"height": 60.0,
+		"height": 208.0,
 		"history":
 		[
+			"(0,1,2,3)[-1]",
+			"len((0,1,2,3)[-1:])",
+			"(0,1,2,3)[-1:]",
+			"(0,1,2,3)[-1]",
 			"\"asd\".upper()",
 			"\"asd\".upper9)",
 			"\"hello\"[:1+1]",
@@ -672,19 +740,35 @@
 	},
 	"expanded_folders":
 	[
-		"/E/cs/proj/DeepRedAssembler"
+		"/E/cs/proj/DeepRedAssembler",
+		"/E/cs/proj/DeepRedAssembler/.idea/scopes",
+		"/E/cs/proj/DeepRedAssembler/bin",
+		"/E/cs/proj/DeepRedAssembler/bin/in",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/__pycache__",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/data"
 	],
 	"file_history":
 	[
-		"/E/cs/proj/DeepRedAssembler/segment.py",
-		"/E/cs/proj/DeepRedAssembler/main.py",
 		"/E/cs/proj/DeepRedAssembler/statement.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_cmp_keyboard.py",
+		"/E/cs/proj/DeepRedAssembler/oprands.py",
+		"/E/cs/proj/DeepRedAssembler/bin/in/test.asm",
+		"/E/cs/proj/DeepRedAssembler/bin/out/program.json",
+		"/E/cs/proj/DeepRedAssembler/main.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_opcodes.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_cmp_ram.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/Build_CPU.py",
+		"/E/cs/proj/DeepRedAssembler/memoryRow.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/program_loader.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_registers.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/main.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/importer.py",
+		"/E/cs/proj/DeepRedAssembler/segment.py",
 		"/E/cs/proj/DeepRedAssembler/bin/test.asm",
 		"/E/cs/proj/DeepRedAssembler/registers.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_cmp_cdu.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/common.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/data/opcodes.json",
-		"/E/cs/proj/DeepRedAssembler/oprands.py",
 		"/E/cs/proj/DeepRedAssembler/drasm.sublime-project",
 		"/E/cs/proj/DeepRedAssembler/exmp/exp.asm",
 		"/E/cs/proj/DeepRedAssembler/parser.out",
@@ -698,16 +782,12 @@
 		"/E/cs/proj/DeepRedAssembler/.gitattributes",
 		"/E/cs/proj/DeepRedAssembler/ply-3.4.tar.gz",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/CommandReplace.py",
-		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/Build_CPU.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_cmp_logic.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_ref.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_cmp_calc.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpucalc.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/misc.py",
-		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_opcodes.py",
 		"/C/Users/Alice/Desktop/cpu/mov.py",
-		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_registers.py",
-		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_cmp_ram.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/properties.json",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_cmp_screen.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/.git/config",
@@ -743,7 +823,6 @@
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/del.bat",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_regold.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_OldMacros.py",
-		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_cmp_keyboard.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_component.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_asm.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/a.py",
@@ -971,8 +1050,408 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "main.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4429,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3121,
+								3121
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 720.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "statement.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2153,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2153,
+								2153
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 60.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "interupts.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 380,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								380,
+								380
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"open_with_edit": true,
+							"sublime_auto_complete": true,
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1009,7 +1488,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 154.0
+		"height": 168.0
 	},
 	"output.find_results":
 	{
