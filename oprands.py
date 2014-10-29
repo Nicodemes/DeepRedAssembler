@@ -12,20 +12,6 @@ class LiteralString(Literal):
 	def getValue(self):
 		return self.value[0]
 
-
-class Holder(Oprand):
-	'''[abstract] the value that the hallder have is allways effictive adress.'''
-	pass
-class Variable(Holder):
-	'''a variable that is defined in the .data segment, can be refferd from the .code segment '''
-	def __init__(self,name,size,initValue,segment,inSegmentPosition=None):
-		print("variable was created")
-		self.name=name
-		self.size=size
-		self.initValue=initValue
-		self.segment=segment
-		self.inSegmentPosition=inSegmentPosition
-
 class EffAdress(Oprand):
 	def __init__(self,adress):
 		self.adress=adress

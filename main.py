@@ -1,7 +1,8 @@
-from registers import generalPurpase as gpRegisters
+from registers import reg8 as reg8
 from oprands import *
 from statement import *
 from segment import *
+from var import *
 import sys
 import registers
 import json
@@ -12,7 +13,7 @@ def exp(l,outputfilename):
 tokens = (
 	'OPCODE','STRING','UNKNOWNVALUE','NAME',
 	'DECLVAR','SEGMENT','LBRACK','RBRACK',
-	'LABLE','COMMENT','BIN','DEC','HEX','VARNAME'
+	'LABLE','COMMENT','BIN','DEC','HEX','REGISTER8','REGISTER16'
 	)
 # Tokens
 
@@ -23,7 +24,8 @@ t_LBRACK      = r'\['
 t_RBRACK      = r'\]'
 t_DECLVAR      =r'db'
 t_OPCODE      =	r'mov|push|pop|add|sub|inc|dec|neg|lea|int|jmp|jz|jnz|je|loop|xor|shl|shr'
-
+t_REGISTER8   = r'[abcdABCD][lLhH]'
+t_REGISTER16  = r'[abcdABCD][xX]'
 t_SEGMENT     = r'\.data|\.code'
 def t_BIN(t):
 	r'0[bB][10]+'
@@ -58,13 +60,14 @@ lex.lex()
 # Parsing rules
 # segments
 names={}
-names.update(registers.generalPurpase)
 opnames = {"mov":1, "push":1, "pop":1, "add":1, "sub":1,\
 	"inc":1, "dec":1, "neg":1, "lea":1, "int":1, "jmp":1, "jz":1,\
 	"jnz":1, "je":1, "loop":1, "xor":1, "shl":1, "shr":1}
 dataSegment=None
 codeSegment=None
 segmentLocations=sys.argv
+
+unsignedVars=dict()
 def p_program(t):
 	'''program : segmentList'''
 	m=list()
@@ -111,13 +114,15 @@ def p_dataList(t):
 		t[0].append(t[1])
 		
 def p_varassign(t):
-	'''varassign : VARNAME DECLVAR literal'''
+	'''varassign : variable DECLVAR literal'''
 	size= 1
+	if not isinstance(variable,UnsignedVar):
+		raise Exception("variable must be usnigned")
 	try:
 		size= { "db":1,"dw":2,"dd":4}[t[2].lower()]
 	except KeyError:
 		raise Exception("the decloration is invalid") 
-	myVar = Variable(t[1],size,t[3],dataSegment)
+	myVar = Variable(t[1].name,size,t[3],dataSegment)
 	names[t[1]]=myVar
 	t[0]=myVar
 def p_variable(t):
@@ -125,7 +130,9 @@ def p_variable(t):
 	try:
 		t[0]=names[t[1]]
 	except KeyError:
-		t[0]=t[1]
+		uns=UnsignedVar(t[1])
+		unsignedVars[t[1]]=uns
+		t[0]=uns
 
 def p_opcode(t):
 	"opcode : OPCODE"
@@ -175,6 +182,8 @@ def p_literal(t):
 def p_oprand(t):
 	'''oprand : variable
 			  | literal'''
+	if isinstance(t[1],UnsignedVar):
+		raise Exception("the var {} is not assigned")
 	t[0]=t[1]
 def p_oprand_adress(t):
 	'oprand : LBRACK literal RBRACK '
@@ -182,6 +191,10 @@ def p_oprand_adress(t):
 def p_oprand_effAdress(t):
 	'oprand : LBRACK variable RBRACK'
 	t[0]=EffAdress(t[2])
+def p_oprand_register(t):
+	'oprand : REGISTER8'
+	t[0]=reg8[t[1].upper()]
+
 def p_oprandList(t):
 	'''oprandList : oprand
 				  | oprandList oprand'''
@@ -191,6 +204,7 @@ def p_oprandList(t):
 	else:
 		t[1].append(t[2])
 		t[0]=t[1]
+
 def p_error(t):
 	print("Syntax error at {}".format(t.value))
 

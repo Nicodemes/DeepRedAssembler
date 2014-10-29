@@ -4,7 +4,7 @@ class Register():
 	def getValue(self):
 		return self
 
-generalPurpase={
+reg8={
 "AL":Register("AL"),\
 "AH":Register("AH"),\
 "BL":Register("BL"),\
