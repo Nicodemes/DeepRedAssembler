@@ -741,11 +741,8 @@
 	"expanded_folders":
 	[
 		"/E/cs/proj/DeepRedAssembler",
-		"/E/cs/proj/DeepRedAssembler/.idea/scopes",
 		"/E/cs/proj/DeepRedAssembler/bin",
-		"/E/cs/proj/DeepRedAssembler/bin/in",
-		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/__pycache__",
-		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/data"
+		"/E/cs/proj/DeepRedAssembler/bin/in"
 	],
 	"file_history":
 	[
@@ -1445,7 +1442,7 @@
 							"sublime_auto_complete": true,
 							"syntax": "Packages/Python/Python.tmLanguage"
 						},
-						"translation.x": 0.0,
+						"translation.x": -0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
