@@ -16,8 +16,9 @@ class Segment:
 			toRet+=str(x)+'\n'
 		return toRet+'\n'
 class DataSegment(Segment):
-	count=-1
+	count=0
 	def __init__(self):
+		self.ID=DataSegment.count
 		DataSegment.count+=1
 		Segment.__init__(self,list(),None)
 		self.nextLocation=0
@@ -45,13 +46,14 @@ class DataSegment(Segment):
 		return toRet
 	def setAdress(self,newAdress):
 		if not newAdress:
-			self.adress="{.data"+str(DataSegment.count)+"}"
+			self.adress="{.data"+str(self.ID)+"}"
 		else:
 			self.adress=newAdress
 class CodeSegment(Segment):
-	count=-1
+	count=0
 	"""the code segment"""
 	def __init__(self, statements):
+		self.ID=CodeSegment.count
 		CodeSegment.count+=1
 		Segment.__init__(self,statements,None)
 		for i ,state in enumerate(statements):

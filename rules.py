@@ -18,7 +18,7 @@ segmentLocations=sys.argv
 unsignedVars=dict()
 def p_program(t):
 	'''program : segmentList'''
-	
+	adict=dict()
 	for i,x in enumerate(t[1]):
 		try:
 			x.setAdress(int(segmentLocations[i+1]))
@@ -29,11 +29,12 @@ def p_program(t):
 		if isinstance(x,CodeSegment):
 			for y in x.parse():
 				m.append(y.blocks)
-			fname=".code"
+			adict[".code"+str(x.ID)]=m
 		else:
 			m=x.parse()
-			fname=".data"
-		expsegment(m,fname+".json")
+			adict[".data"+str(x.ID)]=m
+		
+	expsegment(adict,"program.json")
 def p_segmentList(t):
 	'''segmentList : segment
 				   | segmentList segment'''
