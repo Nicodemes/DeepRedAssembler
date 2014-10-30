@@ -61,7 +61,7 @@ class CodeSegment(Segment):
 		rows=list()
 		rows.append(MemoryRow())
 		for statement in self.statementList:
-			if not isinstance(statement,MachineCode):
+
 			if statement.lable!=None:
 				rows[-1].seal()
 				rows.append(MemoryRow())
