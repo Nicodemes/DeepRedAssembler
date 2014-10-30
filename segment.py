@@ -9,19 +9,27 @@ class Segment:
 		
 	def getAdress(self):
 		return self.adress
-	def setAdress(self,newAdress):
-		if newAdress==None:
-			self.adress="\a"
-		else:
-			self.adress=newAdress
+	
 	def __str__(self):
 		toRet=""
 		for x in self.statementList:
 			toRet+=str(x)+'\n'
 		return toRet+'\n'
 class DataSegment(Segment):
+	count=-1
 	def __init__(self):
-	def addVariable(self,var):
+		DataSegment.count+=1
+		Segment.__init__(self,list(),None)
+		self.nextLocation=0
+		self.statementList=list()
+	def aVar(self, x):
+		self.statementList.append(x)
+		x.inSegmentPosition=self.nextLocation
+		x.segment=self
+		if isinstance(x,LiteralString):
+			self.nextLocation+=len(x.value)
+		else:
+			self.nextLocation+=x.size
 	def parse(self):
 		toRet=list()
 		for var in self.statementList:
@@ -35,9 +43,16 @@ class DataSegment(Segment):
 		elif isinstance(var.initValue, Literal):
 			toRet.append(var.initValue.value)
 		return toRet
+	def setAdress(self,newAdress):
+		if not newAdress:
+			self.adress="{.data"+str(DataSegment.count)+"}"
+		else:
+			self.adress=newAdress
 class CodeSegment(Segment):
+	count=-1
 	"""the code segment"""
 	def __init__(self, statements):
+		CodeSegment.count+=1
 		Segment.__init__(self,statements,None)
 		for i ,state in enumerate(statements):
 			state.locationInSegment=i
@@ -46,6 +61,7 @@ class CodeSegment(Segment):
 		rows=list()
 		rows.append(MemoryRow())
 		for statement in self.statementList:
+			if not isinstance(statement,MachineCode):
 			if statement.lable!=None:
 				rows[-1].seal()
 				rows.append(MemoryRow())
@@ -61,3 +77,8 @@ class CodeSegment(Segment):
 			statement.inSegmentPosition=len(rows)-1
 		rows[-1].seal()
 		return rows
+	def setAdress(self,newAdress):
+		if not newAdress:
+			self.adress="{.data"+str(CodeSegment.count)+"}"
+		else:
+			self.adress=newAdress

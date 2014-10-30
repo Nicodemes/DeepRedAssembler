@@ -3,15 +3,18 @@ tokens = (
 	'DECLVAR','REGISTER8','REGISTER16',
 	'OPCODE','STRING','UNKNOWNVALUE','ID',
 	'SEGMENT','LBRACK','RBRACK',
-	'LABLE','COMMENT','BIN','DEC','HEX'
+	'LABLE','COMMENT','BIN','DEC','HEX',"CURLR","CURLL","MACHINE"
 	)
 # Tokens
-t_STRING      =	r'\"[\x00-\x7F]+\"'
 t_UNKNOWNVALUE=	r'\?'
 t_LBRACK      = r'\['
 t_RBRACK      = r'\]'
 t_SEGMENT     = r'\.data|\.code'
+t_CURLL		  =r'}'
+t_CURLR		  =r'{'
+t_MACHINE     = r'>[\x00-\x7F]*\n'
 reserved={}
+
 def reserve(alist,category,capitalise=True):
 	for item in alist:
 		reserved[item]=category
@@ -21,7 +24,7 @@ def reserve(alist,category,capitalise=True):
 #reserved opcodes
 opcodes=["mov","push","pop","add","sub","inc","dec","neg","lea","int","jmp","jz","jnz","je","loop","xor","shl","shr"]	
 reserve(opcodes,"OPCODE")
-declorators=["db","dw","dd"]
+declorators=["db","dw","dd","ds"]
 reserve(declorators,"DECLVAR",False)
 regbase=['a','b','c','d']
 reg8=[]
@@ -43,6 +46,11 @@ def t_HEX(t):
 def t_DEC(t):
 	r'[1-9][0-9]*'
 	t.value=int(t.value)
+	return t
+
+def t_STRING(t):
+	r'\"[\x00-\x7F]*\"'
+	t.value=t.value.split("\"")[1]
 	return t
 # Ignored characters
 t_ignore = " \t"

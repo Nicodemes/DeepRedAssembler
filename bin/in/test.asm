@@ -1,7 +1,8 @@
 .data
-msg db "Hello World"
+msg db "what is up?"
+msg2 db 256
 .code
 mov AL msg
 start:
-mov AH AL
+mov AH msg2
 jmp start

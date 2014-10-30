@@ -47,3 +47,4 @@ class Variable(Oprand,IAdressable):
 		if isinstance( x, str):
 			return x + "+"+str(self.inSegmentPosition)	
 		return x + self.inSegmentPosition
+	

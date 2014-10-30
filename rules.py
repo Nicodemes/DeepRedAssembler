@@ -11,7 +11,7 @@ def expsegment(l,outputfilename):
 	with open("E:\\cs\\proj\\DeepRedAssembler\\bin\\out\\"+outputfilename, 'w',newline='') as outfile:
 		json.dump(l,outfile)
 
-dataSegment=DataSegment
+dataSegment=DataSegment()
 codeSegment=None
 segmentLocations=sys.argv
 
@@ -48,10 +48,7 @@ def p_segment(t):
 	'''segment : SEGMENT statementList
 			   | SEGMENT dataList'''
 	if t[1] == '.data':
-		print("done with data ")
-		dataSegment=DataSegment(t[2])
 		t[0]=dataSegment
-		
 	elif t[1]=='.code':
 		codeSegment=CodeSegment(t[2])
 		t[0]=codeSegment
@@ -76,10 +73,11 @@ def p_varassign(t):
 	try:
 		size= { "db":1,"dw":2,"dd":4}[t[2].lower()]
 	except KeyError:
-		raise Exception("the decloration is invalid") 
+		raise Exception("the decloration is invalid")
 	myVar = Variable(t[1],size,t[3],dataSegment)
+	dataSegment.aVar(myVar)
 	names[myVar.name]=myVar
-	t[0]=myVar
+	
 def p_variable(t):
 	"variable : ID"
 	try:
@@ -105,6 +103,7 @@ def p_statement_labled(t):
 	names[t[1]]=myLable
 	t[2].lable=myLable
 	t[0]=t[2]
+def p_statement_machine(T)
 def p_statementList(t):
 	'''statementList : statement
 					 | statementList statement'''
