@@ -5,15 +5,15 @@ from segment import *
 import sys
 import json
 from tokenizer import *
-
+from main import options
 names={}
-def expsegment(l,outputfilename):
-	with open("E:\\cs\\proj\\DeepRedAssembler\\bin\\out\\"+outputfilename, 'w',newline='') as outfile:
+def expsegment(l):
+	with open(options.outputFile, 'w',newline='') as outfile:
 		json.dump(l,outfile)
 
 dataSegment=DataSegment()
 codeSegment=None
-segmentLocations=sys.argv
+segmentLocations=[]
 
 unsignedVars=dict()
 def p_program(t):
@@ -34,7 +34,7 @@ def p_program(t):
 			m=x.parse()
 			adict[".data"+str(x.ID)]=m
 		
-	expsegment(adict,"program.json")
+	expsegment(adict)
 def p_segmentList(t):
 	'''segmentList : segment
 				   | segmentList segment'''
@@ -157,5 +157,5 @@ def p_error(t):
 
 import ply.yacc as yacc
 yacc.yacc()
-s= open("E:/cs/proj/DeepRedAssembler/bin/in/test.asm").read()
+s= open(options.inputFile).read()
 yacc.parse(s)

@@ -1,8 +1,9 @@
-{"build_systems":
+{
+	"build_systems":
     [
         {
-            "name": "compile",
-            "cmd": ["python.exe E:/cs/proj/DeepRedAssembler/main.py"]
+            "name": "assemble",
+            "shell_cmd": "python E:/cs/proj/DeepRedAssembler/main.py --inp=E:/cs/proj/DeepRedAssembler/bin/in/test.asm --out=/cs/proj/DeepRedAssembler/bin/in/test.json",
         }
     ],
 	"folders":
