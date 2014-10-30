@@ -103,7 +103,7 @@ def p_statement_labled(t):
 	names[t[1]]=myLable
 	t[2].lable=myLable
 	t[0]=t[2]
-def p_statement_machine(T)
+
 def p_statementList(t):
 	'''statementList : statement
 					 | statementList statement'''
