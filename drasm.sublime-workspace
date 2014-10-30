@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"REGIST",
+				"REGISTER16"
+			],
+			[
+				"RE",
+				"REGISTER16"
+			],
+			[
+				"toke",
+				"tokenize  (module)"
+			],
+			[
+				"res",
+				"reserve"
+			],
+			[
+				"reg",
+				"reg8"
+			],
+			[
+				"REGISTE",
+				"REGISTER8"
+			],
+			[
+				"vara",
+				"variable"
+			],
+			[
 				"int",
 				"int16"
 			],
@@ -74,10 +102,6 @@
 			[
 				"dat",
 				"dataList"
-			],
-			[
-				"vara",
-				"variables"
 			],
 			[
 				"ope",
@@ -200,10 +224,6 @@
 				"ipRegister"
 			],
 			[
-				"reg",
-				"register"
-			],
-			[
 				"reset",
 				"resetBlock"
 			],
@@ -246,10 +266,6 @@
 			[
 				"mak",
 				"makeLink"
-			],
-			[
-				"res",
-				"resultSub"
 			],
 			[
 				"Co",
@@ -498,14 +514,6 @@
 			[
 				"_",
 				"__init__"
-			],
-			[
-				"fo",
-				"format"
-			],
-			[
-				"Incr",
-				"INCREASER"
 			]
 		]
 	},
@@ -515,23 +523,31 @@
 			"file": "main.py",
 			"settings":
 			{
-				"buffer_size": 4429,
+				"buffer_size": 65,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "statement.py",
+			"file": "parser.out",
 			"settings":
 			{
-				"buffer_size": 2153,
+				"buffer_size": 19241,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "interupts.py",
+			"file": "rules.py",
 			"settings":
 			{
-				"buffer_size": 380,
+				"buffer_size": 3310,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "tokenizer.py",
+			"settings":
+			{
+				"buffer_size": 1702,
 				"line_ending": "Windows"
 			}
 		}
@@ -539,9 +555,17 @@
 	"build_system": "Packages/User/untitled.sublime-build",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 81.0,
 		"selected_items":
 		[
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
 			[
 				"tabs",
 				"Indentation: Convert to Tabs"
@@ -567,10 +591,6 @@
 				"Package Control: Remove Package"
 			],
 			[
-				"remo",
-				"Package Control: Remove Package"
-			],
-			[
 				"sspython",
 				"Set Syntax: Python3"
 			],
@@ -588,10 +608,6 @@
 			],
 			[
 				"insta",
-				"Package Control: Install Package"
-			],
-			[
-				"ins",
 				"Package Control: Install Package"
 			],
 			[
@@ -742,15 +758,25 @@
 	[
 		"/E/cs/proj/DeepRedAssembler",
 		"/E/cs/proj/DeepRedAssembler/bin",
-		"/E/cs/proj/DeepRedAssembler/bin/in"
+		"/E/cs/proj/DeepRedAssembler/bin/in",
+		"/E/cs/proj/DeepRedAssembler/bin/out",
+		"/E/cs/proj/DeepRedAssembler/ply"
 	],
 	"file_history":
 	[
-		"/E/cs/proj/DeepRedAssembler/statement.py",
-		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_cmp_keyboard.py",
-		"/E/cs/proj/DeepRedAssembler/oprands.py",
-		"/E/cs/proj/DeepRedAssembler/bin/in/test.asm",
+		"/E/cs/libs/py/ply-3.4/example/BASIC/basparse.py",
 		"/E/cs/proj/DeepRedAssembler/bin/out/program.json",
+		"/E/cs/proj/DeepRedAssembler/statement.py",
+		"/E/cs/proj/DeepRedAssembler/bin/in/test.asm",
+		"/E/cs/proj/DeepRedAssembler/interfaces.py",
+		"/E/cs/proj/DeepRedAssembler/rules.py",
+		"/E/cs/proj/DeepRedAssembler/parser.py",
+		"/E/cs/proj/DeepRedAssembler/tokeniser.py",
+		"/E/cs/proj/DeepRedAssembler/registers.py",
+		"/E/cs/proj/DeepRedAssembler/var.py",
+		"/E/cs/proj/DeepRedAssembler/interupts.py",
+		"/E/cs/proj/DeepRedAssembler/oprands.py",
+		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_cmp_keyboard.py",
 		"/E/cs/proj/DeepRedAssembler/main.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_opcodes.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_cmp_ram.py",
@@ -762,7 +788,6 @@
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/importer.py",
 		"/E/cs/proj/DeepRedAssembler/segment.py",
 		"/E/cs/proj/DeepRedAssembler/bin/test.asm",
-		"/E/cs/proj/DeepRedAssembler/registers.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/cpu_cmp_cdu.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/common.py",
 		"/E/Games/Minecraft/mcedit/MCEdit-0.1.7.1.win-amd64/filters/data/opcodes.json",
@@ -771,7 +796,6 @@
 		"/E/cs/proj/DeepRedAssembler/parser.out",
 		"/E/cs/proj/DeepRedAssembler/parsetab.py",
 		"/E/cs/proj/DeepRedAssembler/opcodes.py",
-		"/E/cs/proj/DeepRedAssembler/interfaces.py",
 		"/C/Users/Alice/AppData/Roaming/Sublime Text 3/Settings/SideBarEnhancements.json",
 		"/E/cs/proj/DeepRedAssembler/COMMIT_EDITMSG.COMMIT_EDITMSG",
 		"/C/Users/Alice/AppData/Roaming/Sublime Text 3/Packages/User/fold1.py",
@@ -871,7 +895,7 @@
 	],
 	"find":
 	{
-		"height": 36.0
+		"height": 30.0
 	},
 	"find_in_files":
 	{
@@ -886,6 +910,10 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"|",
+			",",
+			"REG",
+			"|",
 			"illigal",
 			"	traceback.print_exc()",
 			"\":1, \"",
@@ -972,11 +1000,16 @@
 			"dest"
 		],
 		"highlight": true,
-		"in_selection": false,
+		"in_selection": true,
 		"preserve_case": false,
 		"regex": false,
 		"replace_history":
 		[
+			"\",\"",
+			",\\n\\t",
+			",\\n",
+			"OPCODE",
+			"\": \"REG8\" , \"",
 			"|",
 			":1,",
 			"\", ",
@@ -1047,7 +1080,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -1056,15 +1089,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4429,
+						"buffer_size": 65,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3121,
-								3121
+								65,
+								65
 							]
 						],
 						"settings":
@@ -1177,27 +1210,57 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 720.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "parser.out",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 19241,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 396.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "statement.py",
+					"buffer": 2,
+					"file": "rules.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2153,
+						"buffer_size": 3310,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2153,
-								2153
+								3128,
+								3128
 							]
 						],
 						"settings":
@@ -1310,27 +1373,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 60.0,
+						"translation.y": 924.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "interupts.py",
+					"buffer": 3,
+					"file": "tokenizer.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 380,
+						"buffer_size": 1702,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								380,
-								380
+								1483,
+								1483
 							]
 						],
 						"settings":
@@ -1438,12 +1501,12 @@
 								"Python Django": "Python"
 							},
 							"codeintel_tooltips": "popup",
-							"open_with_edit": true,
 							"sublime_auto_complete": true,
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
-						"translation.x": -0.0,
-						"translation.y": 0.0,
+						"translation.x": 0.0,
+						"translation.y": 660.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1454,7 +1517,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 28.0
+		"height": 30.0
 	},
 	"input":
 	{
@@ -1485,7 +1548,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 168.0
+		"height": 237.0
 	},
 	"output.find_results":
 	{
@@ -1498,7 +1561,7 @@
 	"project": "drasm.sublime-project",
 	"replace":
 	{
-		"height": 66.0
+		"height": 70.0
 	},
 	"save_all_on_build": true,
 	"select_file":

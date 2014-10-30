@@ -4,7 +4,7 @@ class Register():
 	def getValue(self):
 		return self
 
-reg8={
+registers={
 "AL":Register("AL"),\
 "AH":Register("AH"),\
 "BL":Register("BL"),\

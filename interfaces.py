@@ -1,4 +1,4 @@
 
 class IAdressable():
-	def getRealAdress():
+	def getAdress():
 		pass

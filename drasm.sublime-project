@@ -1,17 +1,24 @@
-{
-	"build_systems":
-	[
-		{
-			"cmd":
-			[
-				"python E:/cs/proj/DeepRedAssembler/main.py"
-			],
-			"name": "Assemble file"
-		}
-	],
+{"build_systems":
+    [
+        {
+            "name": "compile",
+            "cmd": ["python.exe E:/cs/proj/DeepRedAssembler/main.py"]
+        }
+    ],
 	"folders":
 	[
 		{
+			"file_exclude_patterns":
+			[
+				"parsetab.py",
+				"ANTLR.lnk",
+				".gitignore"
+			],
+			"folder_exclude_patterns":
+			[
+				"__pycache__",
+				".idea"
+			],
 			"follow_symlinks": true,
 			"path": "."
 		},
@@ -19,5 +26,6 @@
 			"follow_symlinks": true,
 			"path": "E:\\Games\\Minecraft\\mcedit\\MCEdit-0.1.7.1.win-amd64\\filters"
 		}
-	]
+	],
+	
 }

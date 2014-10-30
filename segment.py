@@ -1,29 +1,12 @@
 #virtual class
 from memoryRow import MemoryRow
+from oprands import *
 class Segment:
 	def __init__(self,statementList,startAdress):
 		self.statementList=statementList
 		self.parse
-		self.startAdress=startAdress
-	#virtual function
-	def parse(self):
-		for statement in self.statementList:
-			print(str(statement))
-class DataSegment(Segment):
-	def __init__(self,variables):
-		Segment.__init__(self,variables,None)
-		self.vars={}
-		for i, var in enumerate(variables):
-			var.inSegmentPosition=i
-			self.vars[var.name]=var
-	
-class CodeSegment(Segment):
-	"""the code segment"""
-	def __init__(self, statements):
-		Segment.__init__(self,statements,None)
-		for i ,state in enumerate(statements):
-			statements[i].locationInSegment=i
-			statements[i].segment=self
+		self.setAdress(startAdress)
+		
 	def getAdress(self):
 		return self.adress
 	def setAdress(self,newAdress):
@@ -36,7 +19,29 @@ class CodeSegment(Segment):
 		for x in self.statementList:
 			toRet+=str(x)+'\n'
 		return toRet+'\n'
-	
+class DataSegment(Segment):
+	def __init__(self):
+	def addVariable(self,var):
+	def parse(self):
+		toRet=list()
+		for var in self.statementList:
+			toRet+=DataSegment.parseInit(var)
+		return toRet
+	def parseInit(var):
+		toRet=list()
+		if isinstance(var.initValue,LiteralString):
+			for c in var.initValue.value:
+				toRet.append(ord(c))
+		elif isinstance(var.initValue, Literal):
+			toRet.append(var.initValue.value)
+		return toRet
+class CodeSegment(Segment):
+	"""the code segment"""
+	def __init__(self, statements):
+		Segment.__init__(self,statements,None)
+		for i ,state in enumerate(statements):
+			state.locationInSegment=i
+			state.segment=self
 	def parse(self):
 		rows=list()
 		rows.append(MemoryRow())
