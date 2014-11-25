@@ -2,11 +2,10 @@ Created by PLY version 3.4 (http://www.dabeaz.com/ply)
 
 Unused terminals:
 
-    CURLL
-    MACHINE
-    CURLR
-    UNKNOWNVALUE
     COMMENT
+    UNKNOWNVALUE
+    CURLL
+    CURLR
 
 Grammar
 
@@ -23,57 +22,58 @@ Rule 9     variable -> ID
 Rule 10    opcode -> OPCODE
 Rule 11    statement -> opcode oprandList
 Rule 12    statement -> LABLE statement
-Rule 13    statementList -> statement
-Rule 14    statementList -> statementList statement
-Rule 15    literal -> DEC
-Rule 16    literal -> HEX
-Rule 17    literal -> BIN
-Rule 18    literal -> STRING
-Rule 19    oprand -> variable
-Rule 20    oprand -> literal
-Rule 21    oprand -> REGISTER8
-Rule 22    oprand -> REGISTER16
-Rule 23    oprand -> LBRACK literal RBRACK
-Rule 24    oprand -> LBRACK variable RBRACK
-Rule 25    oprandList -> oprand
-Rule 26    oprandList -> oprandList oprand
+Rule 13    statement -> MACHINE
+Rule 14    statementList -> statement
+Rule 15    statementList -> statementList statement
+Rule 16    literal -> DEC
+Rule 17    literal -> HEX
+Rule 18    literal -> BIN
+Rule 19    literal -> STRING
+Rule 20    oprand -> variable
+Rule 21    oprand -> literal
+Rule 22    oprand -> REGISTER8
+Rule 23    oprand -> REGISTER16
+Rule 24    oprand -> LBRACK literal RBRACK
+Rule 25    oprand -> LBRACK variable RBRACK
+Rule 26    oprandList -> oprand
+Rule 27    oprandList -> oprandList oprand
 
 Terminals, with rules where they appear
 
-BIN                  : 17
+BIN                  : 18
 COMMENT              : 
 CURLL                : 
 CURLR                : 
-DEC                  : 15
+DEC                  : 16
 DECLVAR              : 8
-HEX                  : 16
+HEX                  : 17
 ID                   : 8 9
 LABLE                : 12
-LBRACK               : 23 24
-MACHINE              : 
+LBRACK               : 24 25
+MACHINE              : 13
 OPCODE               : 10
-RBRACK               : 23 24
-REGISTER16           : 22
-REGISTER8            : 21
+RBRACK               : 24 25
+REGISTER16           : 23
+REGISTER8            : 22
 SEGMENT              : 4 5
-STRING               : 18
+STRING               : 19
 UNKNOWNVALUE         : 
 error                : 
 
 Nonterminals, with rules where they appear
 
 dataList             : 5 7
-literal              : 8 20 23
+literal              : 8 21 24
 opcode               : 11
-oprand               : 25 26
-oprandList           : 11 26
+oprand               : 26 27
+oprandList           : 11 27
 program              : 0
 segment              : 2 3
 segmentList          : 1 3
-statement            : 12 13 14
-statementList        : 4 14
+statement            : 12 14 15
+statementList        : 4 15
 varassign            : 6 7
-variable             : 19 24
+variable             : 20 25
 
 Parsing method: LALR
 
@@ -86,42 +86,44 @@ state 0
     (4) segment -> . SEGMENT statementList
     (5) segment -> . SEGMENT dataList
 
-    SEGMENT         shift and go to state 1
+    SEGMENT         shift and go to state 2
 
-    program                        shift and go to state 3
-    segment                        shift and go to state 2
     segmentList                    shift and go to state 4
+    program                        shift and go to state 3
+    segment                        shift and go to state 1
 
 state 1
-
-    (4) segment -> SEGMENT . statementList
-    (5) segment -> SEGMENT . dataList
-    (13) statementList -> . statement
-    (14) statementList -> . statementList statement
-    (6) dataList -> . varassign
-    (7) dataList -> . dataList varassign
-    (11) statement -> . opcode oprandList
-    (12) statement -> . LABLE statement
-    (8) varassign -> . ID DECLVAR literal
-    (10) opcode -> . OPCODE
-
-    LABLE           shift and go to state 5
-    ID              shift and go to state 12
-    OPCODE          shift and go to state 6
-
-    statement                      shift and go to state 10
-    varassign                      shift and go to state 7
-    statementList                  shift and go to state 11
-    dataList                       shift and go to state 8
-    opcode                         shift and go to state 9
-
-state 2
 
     (2) segmentList -> segment .
 
     SEGMENT         reduce using rule 2 (segmentList -> segment .)
     $end            reduce using rule 2 (segmentList -> segment .)
 
+
+state 2
+
+    (4) segment -> SEGMENT . statementList
+    (5) segment -> SEGMENT . dataList
+    (14) statementList -> . statement
+    (15) statementList -> . statementList statement
+    (6) dataList -> . varassign
+    (7) dataList -> . dataList varassign
+    (11) statement -> . opcode oprandList
+    (12) statement -> . LABLE statement
+    (13) statement -> . MACHINE
+    (8) varassign -> . ID DECLVAR literal
+    (10) opcode -> . OPCODE
+
+    LABLE           shift and go to state 7
+    MACHINE         shift and go to state 8
+    ID              shift and go to state 11
+    OPCODE          shift and go to state 9
+
+    statement                      shift and go to state 10
+    varassign                      shift and go to state 5
+    statementList                  shift and go to state 6
+    dataList                       shift and go to state 12
+    opcode                         shift and go to state 13
 
 state 3
 
@@ -137,24 +139,64 @@ state 4
     (5) segment -> . SEGMENT dataList
 
     $end            reduce using rule 1 (program -> segmentList .)
-    SEGMENT         shift and go to state 1
+    SEGMENT         shift and go to state 2
 
-    segment                        shift and go to state 13
+    segment                        shift and go to state 14
 
 state 5
+
+    (6) dataList -> varassign .
+
+    ID              reduce using rule 6 (dataList -> varassign .)
+    SEGMENT         reduce using rule 6 (dataList -> varassign .)
+    $end            reduce using rule 6 (dataList -> varassign .)
+
+
+state 6
+
+    (4) segment -> SEGMENT statementList .
+    (15) statementList -> statementList . statement
+    (11) statement -> . opcode oprandList
+    (12) statement -> . LABLE statement
+    (13) statement -> . MACHINE
+    (10) opcode -> . OPCODE
+
+    SEGMENT         reduce using rule 4 (segment -> SEGMENT statementList .)
+    $end            reduce using rule 4 (segment -> SEGMENT statementList .)
+    LABLE           shift and go to state 7
+    MACHINE         shift and go to state 8
+    OPCODE          shift and go to state 9
+
+    statement                      shift and go to state 15
+    opcode                         shift and go to state 13
+
+state 7
 
     (12) statement -> LABLE . statement
     (11) statement -> . opcode oprandList
     (12) statement -> . LABLE statement
+    (13) statement -> . MACHINE
     (10) opcode -> . OPCODE
 
-    LABLE           shift and go to state 5
-    OPCODE          shift and go to state 6
+    LABLE           shift and go to state 7
+    MACHINE         shift and go to state 8
+    OPCODE          shift and go to state 9
 
-    statement                      shift and go to state 14
-    opcode                         shift and go to state 9
+    statement                      shift and go to state 16
+    opcode                         shift and go to state 13
 
-state 6
+state 8
+
+    (13) statement -> MACHINE .
+
+    LABLE           reduce using rule 13 (statement -> MACHINE .)
+    MACHINE         reduce using rule 13 (statement -> MACHINE .)
+    OPCODE          reduce using rule 13 (statement -> MACHINE .)
+    SEGMENT         reduce using rule 13 (statement -> MACHINE .)
+    $end            reduce using rule 13 (statement -> MACHINE .)
+
+
+state 9
 
     (10) opcode -> OPCODE .
 
@@ -168,16 +210,25 @@ state 6
     STRING          reduce using rule 10 (opcode -> OPCODE .)
 
 
-state 7
+state 10
 
-    (6) dataList -> varassign .
+    (14) statementList -> statement .
 
-    ID              reduce using rule 6 (dataList -> varassign .)
-    SEGMENT         reduce using rule 6 (dataList -> varassign .)
-    $end            reduce using rule 6 (dataList -> varassign .)
+    LABLE           reduce using rule 14 (statementList -> statement .)
+    MACHINE         reduce using rule 14 (statementList -> statement .)
+    OPCODE          reduce using rule 14 (statementList -> statement .)
+    SEGMENT         reduce using rule 14 (statementList -> statement .)
+    $end            reduce using rule 14 (statementList -> statement .)
 
 
-state 8
+state 11
+
+    (8) varassign -> ID . DECLVAR literal
+
+    DECLVAR         shift and go to state 17
+
+
+state 12
 
     (5) segment -> SEGMENT dataList .
     (7) dataList -> dataList . varassign
@@ -185,75 +236,42 @@ state 8
 
     SEGMENT         reduce using rule 5 (segment -> SEGMENT dataList .)
     $end            reduce using rule 5 (segment -> SEGMENT dataList .)
-    ID              shift and go to state 12
+    ID              shift and go to state 11
 
-    varassign                      shift and go to state 15
-
-state 9
-
-    (11) statement -> opcode . oprandList
-    (25) oprandList -> . oprand
-    (26) oprandList -> . oprandList oprand
-    (19) oprand -> . variable
-    (20) oprand -> . literal
-    (21) oprand -> . REGISTER8
-    (22) oprand -> . REGISTER16
-    (23) oprand -> . LBRACK literal RBRACK
-    (24) oprand -> . LBRACK variable RBRACK
-    (9) variable -> . ID
-    (15) literal -> . DEC
-    (16) literal -> . HEX
-    (17) literal -> . BIN
-    (18) literal -> . STRING
-
-    REGISTER8       shift and go to state 23
-    REGISTER16      shift and go to state 21
-    LBRACK          shift and go to state 17
-    ID              shift and go to state 25
-    DEC             shift and go to state 24
-    HEX             shift and go to state 22
-    BIN             shift and go to state 19
-    STRING          shift and go to state 16
-
-    literal                        shift and go to state 26
-    oprand                         shift and go to state 20
-    oprandList                     shift and go to state 18
-    variable                       shift and go to state 27
-
-state 10
-
-    (13) statementList -> statement .
-
-    LABLE           reduce using rule 13 (statementList -> statement .)
-    OPCODE          reduce using rule 13 (statementList -> statement .)
-    SEGMENT         reduce using rule 13 (statementList -> statement .)
-    $end            reduce using rule 13 (statementList -> statement .)
-
-
-state 11
-
-    (4) segment -> SEGMENT statementList .
-    (14) statementList -> statementList . statement
-    (11) statement -> . opcode oprandList
-    (12) statement -> . LABLE statement
-    (10) opcode -> . OPCODE
-
-    SEGMENT         reduce using rule 4 (segment -> SEGMENT statementList .)
-    $end            reduce using rule 4 (segment -> SEGMENT statementList .)
-    LABLE           shift and go to state 5
-    OPCODE          shift and go to state 6
-
-    opcode                         shift and go to state 9
-    statement                      shift and go to state 28
-
-state 12
-
-    (8) varassign -> ID . DECLVAR literal
-
-    DECLVAR         shift and go to state 29
-
+    varassign                      shift and go to state 18
 
 state 13
+
+    (11) statement -> opcode . oprandList
+    (26) oprandList -> . oprand
+    (27) oprandList -> . oprandList oprand
+    (20) oprand -> . variable
+    (21) oprand -> . literal
+    (22) oprand -> . REGISTER8
+    (23) oprand -> . REGISTER16
+    (24) oprand -> . LBRACK literal RBRACK
+    (25) oprand -> . LBRACK variable RBRACK
+    (9) variable -> . ID
+    (16) literal -> . DEC
+    (17) literal -> . HEX
+    (18) literal -> . BIN
+    (19) literal -> . STRING
+
+    REGISTER8       shift and go to state 27
+    REGISTER16      shift and go to state 29
+    LBRACK          shift and go to state 25
+    ID              shift and go to state 28
+    DEC             shift and go to state 30
+    HEX             shift and go to state 22
+    BIN             shift and go to state 20
+    STRING          shift and go to state 21
+
+    variable                       shift and go to state 26
+    oprandList                     shift and go to state 23
+    literal                        shift and go to state 19
+    oprand                         shift and go to state 24
+
+state 14
 
     (3) segmentList -> segmentList segment .
 
@@ -261,17 +279,44 @@ state 13
     $end            reduce using rule 3 (segmentList -> segmentList segment .)
 
 
-state 14
+state 15
+
+    (15) statementList -> statementList statement .
+
+    LABLE           reduce using rule 15 (statementList -> statementList statement .)
+    MACHINE         reduce using rule 15 (statementList -> statementList statement .)
+    OPCODE          reduce using rule 15 (statementList -> statementList statement .)
+    SEGMENT         reduce using rule 15 (statementList -> statementList statement .)
+    $end            reduce using rule 15 (statementList -> statementList statement .)
+
+
+state 16
 
     (12) statement -> LABLE statement .
 
     LABLE           reduce using rule 12 (statement -> LABLE statement .)
+    MACHINE         reduce using rule 12 (statement -> LABLE statement .)
     OPCODE          reduce using rule 12 (statement -> LABLE statement .)
     SEGMENT         reduce using rule 12 (statement -> LABLE statement .)
     $end            reduce using rule 12 (statement -> LABLE statement .)
 
 
-state 15
+state 17
+
+    (8) varassign -> ID DECLVAR . literal
+    (16) literal -> . DEC
+    (17) literal -> . HEX
+    (18) literal -> . BIN
+    (19) literal -> . STRING
+
+    DEC             shift and go to state 30
+    HEX             shift and go to state 22
+    BIN             shift and go to state 20
+    STRING          shift and go to state 21
+
+    literal                        shift and go to state 31
+
+state 18
 
     (7) dataList -> dataList varassign .
 
@@ -280,193 +325,199 @@ state 15
     $end            reduce using rule 7 (dataList -> dataList varassign .)
 
 
-state 16
-
-    (18) literal -> STRING .
-
-    RBRACK          reduce using rule 18 (literal -> STRING .)
-    REGISTER8       reduce using rule 18 (literal -> STRING .)
-    REGISTER16      reduce using rule 18 (literal -> STRING .)
-    LBRACK          reduce using rule 18 (literal -> STRING .)
-    ID              reduce using rule 18 (literal -> STRING .)
-    DEC             reduce using rule 18 (literal -> STRING .)
-    HEX             reduce using rule 18 (literal -> STRING .)
-    BIN             reduce using rule 18 (literal -> STRING .)
-    STRING          reduce using rule 18 (literal -> STRING .)
-    LABLE           reduce using rule 18 (literal -> STRING .)
-    OPCODE          reduce using rule 18 (literal -> STRING .)
-    SEGMENT         reduce using rule 18 (literal -> STRING .)
-    $end            reduce using rule 18 (literal -> STRING .)
-
-
-state 17
-
-    (23) oprand -> LBRACK . literal RBRACK
-    (24) oprand -> LBRACK . variable RBRACK
-    (15) literal -> . DEC
-    (16) literal -> . HEX
-    (17) literal -> . BIN
-    (18) literal -> . STRING
-    (9) variable -> . ID
-
-    DEC             shift and go to state 24
-    HEX             shift and go to state 22
-    BIN             shift and go to state 19
-    STRING          shift and go to state 16
-    ID              shift and go to state 25
-
-    variable                       shift and go to state 30
-    literal                        shift and go to state 31
-
-state 18
-
-    (11) statement -> opcode oprandList .
-    (26) oprandList -> oprandList . oprand
-    (19) oprand -> . variable
-    (20) oprand -> . literal
-    (21) oprand -> . REGISTER8
-    (22) oprand -> . REGISTER16
-    (23) oprand -> . LBRACK literal RBRACK
-    (24) oprand -> . LBRACK variable RBRACK
-    (9) variable -> . ID
-    (15) literal -> . DEC
-    (16) literal -> . HEX
-    (17) literal -> . BIN
-    (18) literal -> . STRING
-
-    LABLE           reduce using rule 11 (statement -> opcode oprandList .)
-    OPCODE          reduce using rule 11 (statement -> opcode oprandList .)
-    SEGMENT         reduce using rule 11 (statement -> opcode oprandList .)
-    $end            reduce using rule 11 (statement -> opcode oprandList .)
-    REGISTER8       shift and go to state 23
-    REGISTER16      shift and go to state 21
-    LBRACK          shift and go to state 17
-    ID              shift and go to state 25
-    DEC             shift and go to state 24
-    HEX             shift and go to state 22
-    BIN             shift and go to state 19
-    STRING          shift and go to state 16
-
-    literal                        shift and go to state 26
-    oprand                         shift and go to state 32
-    variable                       shift and go to state 27
-
 state 19
 
-    (17) literal -> BIN .
+    (21) oprand -> literal .
 
-    RBRACK          reduce using rule 17 (literal -> BIN .)
-    REGISTER8       reduce using rule 17 (literal -> BIN .)
-    REGISTER16      reduce using rule 17 (literal -> BIN .)
-    LBRACK          reduce using rule 17 (literal -> BIN .)
-    ID              reduce using rule 17 (literal -> BIN .)
-    DEC             reduce using rule 17 (literal -> BIN .)
-    HEX             reduce using rule 17 (literal -> BIN .)
-    BIN             reduce using rule 17 (literal -> BIN .)
-    STRING          reduce using rule 17 (literal -> BIN .)
-    LABLE           reduce using rule 17 (literal -> BIN .)
-    OPCODE          reduce using rule 17 (literal -> BIN .)
-    SEGMENT         reduce using rule 17 (literal -> BIN .)
-    $end            reduce using rule 17 (literal -> BIN .)
+    REGISTER8       reduce using rule 21 (oprand -> literal .)
+    REGISTER16      reduce using rule 21 (oprand -> literal .)
+    LBRACK          reduce using rule 21 (oprand -> literal .)
+    ID              reduce using rule 21 (oprand -> literal .)
+    DEC             reduce using rule 21 (oprand -> literal .)
+    HEX             reduce using rule 21 (oprand -> literal .)
+    BIN             reduce using rule 21 (oprand -> literal .)
+    STRING          reduce using rule 21 (oprand -> literal .)
+    LABLE           reduce using rule 21 (oprand -> literal .)
+    MACHINE         reduce using rule 21 (oprand -> literal .)
+    OPCODE          reduce using rule 21 (oprand -> literal .)
+    SEGMENT         reduce using rule 21 (oprand -> literal .)
+    $end            reduce using rule 21 (oprand -> literal .)
 
 
 state 20
 
-    (25) oprandList -> oprand .
+    (18) literal -> BIN .
 
-    REGISTER8       reduce using rule 25 (oprandList -> oprand .)
-    REGISTER16      reduce using rule 25 (oprandList -> oprand .)
-    LBRACK          reduce using rule 25 (oprandList -> oprand .)
-    ID              reduce using rule 25 (oprandList -> oprand .)
-    DEC             reduce using rule 25 (oprandList -> oprand .)
-    HEX             reduce using rule 25 (oprandList -> oprand .)
-    BIN             reduce using rule 25 (oprandList -> oprand .)
-    STRING          reduce using rule 25 (oprandList -> oprand .)
-    LABLE           reduce using rule 25 (oprandList -> oprand .)
-    OPCODE          reduce using rule 25 (oprandList -> oprand .)
-    SEGMENT         reduce using rule 25 (oprandList -> oprand .)
-    $end            reduce using rule 25 (oprandList -> oprand .)
+    REGISTER8       reduce using rule 18 (literal -> BIN .)
+    REGISTER16      reduce using rule 18 (literal -> BIN .)
+    LBRACK          reduce using rule 18 (literal -> BIN .)
+    ID              reduce using rule 18 (literal -> BIN .)
+    DEC             reduce using rule 18 (literal -> BIN .)
+    HEX             reduce using rule 18 (literal -> BIN .)
+    BIN             reduce using rule 18 (literal -> BIN .)
+    STRING          reduce using rule 18 (literal -> BIN .)
+    LABLE           reduce using rule 18 (literal -> BIN .)
+    MACHINE         reduce using rule 18 (literal -> BIN .)
+    OPCODE          reduce using rule 18 (literal -> BIN .)
+    SEGMENT         reduce using rule 18 (literal -> BIN .)
+    $end            reduce using rule 18 (literal -> BIN .)
+    RBRACK          reduce using rule 18 (literal -> BIN .)
 
 
 state 21
 
-    (22) oprand -> REGISTER16 .
+    (19) literal -> STRING .
 
-    REGISTER8       reduce using rule 22 (oprand -> REGISTER16 .)
-    REGISTER16      reduce using rule 22 (oprand -> REGISTER16 .)
-    LBRACK          reduce using rule 22 (oprand -> REGISTER16 .)
-    ID              reduce using rule 22 (oprand -> REGISTER16 .)
-    DEC             reduce using rule 22 (oprand -> REGISTER16 .)
-    HEX             reduce using rule 22 (oprand -> REGISTER16 .)
-    BIN             reduce using rule 22 (oprand -> REGISTER16 .)
-    STRING          reduce using rule 22 (oprand -> REGISTER16 .)
-    LABLE           reduce using rule 22 (oprand -> REGISTER16 .)
-    OPCODE          reduce using rule 22 (oprand -> REGISTER16 .)
-    SEGMENT         reduce using rule 22 (oprand -> REGISTER16 .)
-    $end            reduce using rule 22 (oprand -> REGISTER16 .)
+    REGISTER8       reduce using rule 19 (literal -> STRING .)
+    REGISTER16      reduce using rule 19 (literal -> STRING .)
+    LBRACK          reduce using rule 19 (literal -> STRING .)
+    ID              reduce using rule 19 (literal -> STRING .)
+    DEC             reduce using rule 19 (literal -> STRING .)
+    HEX             reduce using rule 19 (literal -> STRING .)
+    BIN             reduce using rule 19 (literal -> STRING .)
+    STRING          reduce using rule 19 (literal -> STRING .)
+    LABLE           reduce using rule 19 (literal -> STRING .)
+    MACHINE         reduce using rule 19 (literal -> STRING .)
+    OPCODE          reduce using rule 19 (literal -> STRING .)
+    SEGMENT         reduce using rule 19 (literal -> STRING .)
+    $end            reduce using rule 19 (literal -> STRING .)
+    RBRACK          reduce using rule 19 (literal -> STRING .)
 
 
 state 22
 
-    (16) literal -> HEX .
+    (17) literal -> HEX .
 
-    RBRACK          reduce using rule 16 (literal -> HEX .)
-    REGISTER8       reduce using rule 16 (literal -> HEX .)
-    REGISTER16      reduce using rule 16 (literal -> HEX .)
-    LBRACK          reduce using rule 16 (literal -> HEX .)
-    ID              reduce using rule 16 (literal -> HEX .)
-    DEC             reduce using rule 16 (literal -> HEX .)
-    HEX             reduce using rule 16 (literal -> HEX .)
-    BIN             reduce using rule 16 (literal -> HEX .)
-    STRING          reduce using rule 16 (literal -> HEX .)
-    LABLE           reduce using rule 16 (literal -> HEX .)
-    OPCODE          reduce using rule 16 (literal -> HEX .)
-    SEGMENT         reduce using rule 16 (literal -> HEX .)
-    $end            reduce using rule 16 (literal -> HEX .)
+    REGISTER8       reduce using rule 17 (literal -> HEX .)
+    REGISTER16      reduce using rule 17 (literal -> HEX .)
+    LBRACK          reduce using rule 17 (literal -> HEX .)
+    ID              reduce using rule 17 (literal -> HEX .)
+    DEC             reduce using rule 17 (literal -> HEX .)
+    HEX             reduce using rule 17 (literal -> HEX .)
+    BIN             reduce using rule 17 (literal -> HEX .)
+    STRING          reduce using rule 17 (literal -> HEX .)
+    LABLE           reduce using rule 17 (literal -> HEX .)
+    MACHINE         reduce using rule 17 (literal -> HEX .)
+    OPCODE          reduce using rule 17 (literal -> HEX .)
+    SEGMENT         reduce using rule 17 (literal -> HEX .)
+    $end            reduce using rule 17 (literal -> HEX .)
+    RBRACK          reduce using rule 17 (literal -> HEX .)
 
 
 state 23
 
-    (21) oprand -> REGISTER8 .
+    (11) statement -> opcode oprandList .
+    (27) oprandList -> oprandList . oprand
+    (20) oprand -> . variable
+    (21) oprand -> . literal
+    (22) oprand -> . REGISTER8
+    (23) oprand -> . REGISTER16
+    (24) oprand -> . LBRACK literal RBRACK
+    (25) oprand -> . LBRACK variable RBRACK
+    (9) variable -> . ID
+    (16) literal -> . DEC
+    (17) literal -> . HEX
+    (18) literal -> . BIN
+    (19) literal -> . STRING
 
-    REGISTER8       reduce using rule 21 (oprand -> REGISTER8 .)
-    REGISTER16      reduce using rule 21 (oprand -> REGISTER8 .)
-    LBRACK          reduce using rule 21 (oprand -> REGISTER8 .)
-    ID              reduce using rule 21 (oprand -> REGISTER8 .)
-    DEC             reduce using rule 21 (oprand -> REGISTER8 .)
-    HEX             reduce using rule 21 (oprand -> REGISTER8 .)
-    BIN             reduce using rule 21 (oprand -> REGISTER8 .)
-    STRING          reduce using rule 21 (oprand -> REGISTER8 .)
-    LABLE           reduce using rule 21 (oprand -> REGISTER8 .)
-    OPCODE          reduce using rule 21 (oprand -> REGISTER8 .)
-    SEGMENT         reduce using rule 21 (oprand -> REGISTER8 .)
-    $end            reduce using rule 21 (oprand -> REGISTER8 .)
+    LABLE           reduce using rule 11 (statement -> opcode oprandList .)
+    MACHINE         reduce using rule 11 (statement -> opcode oprandList .)
+    OPCODE          reduce using rule 11 (statement -> opcode oprandList .)
+    SEGMENT         reduce using rule 11 (statement -> opcode oprandList .)
+    $end            reduce using rule 11 (statement -> opcode oprandList .)
+    REGISTER8       shift and go to state 27
+    REGISTER16      shift and go to state 29
+    LBRACK          shift and go to state 25
+    ID              shift and go to state 28
+    DEC             shift and go to state 30
+    HEX             shift and go to state 22
+    BIN             shift and go to state 20
+    STRING          shift and go to state 21
 
+    variable                       shift and go to state 26
+    literal                        shift and go to state 19
+    oprand                         shift and go to state 32
 
 state 24
 
-    (15) literal -> DEC .
+    (26) oprandList -> oprand .
 
-    RBRACK          reduce using rule 15 (literal -> DEC .)
-    REGISTER8       reduce using rule 15 (literal -> DEC .)
-    REGISTER16      reduce using rule 15 (literal -> DEC .)
-    LBRACK          reduce using rule 15 (literal -> DEC .)
-    ID              reduce using rule 15 (literal -> DEC .)
-    DEC             reduce using rule 15 (literal -> DEC .)
-    HEX             reduce using rule 15 (literal -> DEC .)
-    BIN             reduce using rule 15 (literal -> DEC .)
-    STRING          reduce using rule 15 (literal -> DEC .)
-    LABLE           reduce using rule 15 (literal -> DEC .)
-    OPCODE          reduce using rule 15 (literal -> DEC .)
-    SEGMENT         reduce using rule 15 (literal -> DEC .)
-    $end            reduce using rule 15 (literal -> DEC .)
+    REGISTER8       reduce using rule 26 (oprandList -> oprand .)
+    REGISTER16      reduce using rule 26 (oprandList -> oprand .)
+    LBRACK          reduce using rule 26 (oprandList -> oprand .)
+    ID              reduce using rule 26 (oprandList -> oprand .)
+    DEC             reduce using rule 26 (oprandList -> oprand .)
+    HEX             reduce using rule 26 (oprandList -> oprand .)
+    BIN             reduce using rule 26 (oprandList -> oprand .)
+    STRING          reduce using rule 26 (oprandList -> oprand .)
+    LABLE           reduce using rule 26 (oprandList -> oprand .)
+    MACHINE         reduce using rule 26 (oprandList -> oprand .)
+    OPCODE          reduce using rule 26 (oprandList -> oprand .)
+    SEGMENT         reduce using rule 26 (oprandList -> oprand .)
+    $end            reduce using rule 26 (oprandList -> oprand .)
 
 
 state 25
 
+    (24) oprand -> LBRACK . literal RBRACK
+    (25) oprand -> LBRACK . variable RBRACK
+    (16) literal -> . DEC
+    (17) literal -> . HEX
+    (18) literal -> . BIN
+    (19) literal -> . STRING
+    (9) variable -> . ID
+
+    DEC             shift and go to state 30
+    HEX             shift and go to state 22
+    BIN             shift and go to state 20
+    STRING          shift and go to state 21
+    ID              shift and go to state 28
+
+    variable                       shift and go to state 33
+    literal                        shift and go to state 34
+
+state 26
+
+    (20) oprand -> variable .
+
+    REGISTER8       reduce using rule 20 (oprand -> variable .)
+    REGISTER16      reduce using rule 20 (oprand -> variable .)
+    LBRACK          reduce using rule 20 (oprand -> variable .)
+    ID              reduce using rule 20 (oprand -> variable .)
+    DEC             reduce using rule 20 (oprand -> variable .)
+    HEX             reduce using rule 20 (oprand -> variable .)
+    BIN             reduce using rule 20 (oprand -> variable .)
+    STRING          reduce using rule 20 (oprand -> variable .)
+    LABLE           reduce using rule 20 (oprand -> variable .)
+    MACHINE         reduce using rule 20 (oprand -> variable .)
+    OPCODE          reduce using rule 20 (oprand -> variable .)
+    SEGMENT         reduce using rule 20 (oprand -> variable .)
+    $end            reduce using rule 20 (oprand -> variable .)
+
+
+state 27
+
+    (22) oprand -> REGISTER8 .
+
+    REGISTER8       reduce using rule 22 (oprand -> REGISTER8 .)
+    REGISTER16      reduce using rule 22 (oprand -> REGISTER8 .)
+    LBRACK          reduce using rule 22 (oprand -> REGISTER8 .)
+    ID              reduce using rule 22 (oprand -> REGISTER8 .)
+    DEC             reduce using rule 22 (oprand -> REGISTER8 .)
+    HEX             reduce using rule 22 (oprand -> REGISTER8 .)
+    BIN             reduce using rule 22 (oprand -> REGISTER8 .)
+    STRING          reduce using rule 22 (oprand -> REGISTER8 .)
+    LABLE           reduce using rule 22 (oprand -> REGISTER8 .)
+    MACHINE         reduce using rule 22 (oprand -> REGISTER8 .)
+    OPCODE          reduce using rule 22 (oprand -> REGISTER8 .)
+    SEGMENT         reduce using rule 22 (oprand -> REGISTER8 .)
+    $end            reduce using rule 22 (oprand -> REGISTER8 .)
+
+
+state 28
+
     (9) variable -> ID .
 
-    RBRACK          reduce using rule 9 (variable -> ID .)
     REGISTER8       reduce using rule 9 (variable -> ID .)
     REGISTER16      reduce using rule 9 (variable -> ID .)
     LBRACK          reduce using rule 9 (variable -> ID .)
@@ -476,105 +527,53 @@ state 25
     BIN             reduce using rule 9 (variable -> ID .)
     STRING          reduce using rule 9 (variable -> ID .)
     LABLE           reduce using rule 9 (variable -> ID .)
+    MACHINE         reduce using rule 9 (variable -> ID .)
     OPCODE          reduce using rule 9 (variable -> ID .)
     SEGMENT         reduce using rule 9 (variable -> ID .)
     $end            reduce using rule 9 (variable -> ID .)
-
-
-state 26
-
-    (20) oprand -> literal .
-
-    REGISTER8       reduce using rule 20 (oprand -> literal .)
-    REGISTER16      reduce using rule 20 (oprand -> literal .)
-    LBRACK          reduce using rule 20 (oprand -> literal .)
-    ID              reduce using rule 20 (oprand -> literal .)
-    DEC             reduce using rule 20 (oprand -> literal .)
-    HEX             reduce using rule 20 (oprand -> literal .)
-    BIN             reduce using rule 20 (oprand -> literal .)
-    STRING          reduce using rule 20 (oprand -> literal .)
-    LABLE           reduce using rule 20 (oprand -> literal .)
-    OPCODE          reduce using rule 20 (oprand -> literal .)
-    SEGMENT         reduce using rule 20 (oprand -> literal .)
-    $end            reduce using rule 20 (oprand -> literal .)
-
-
-state 27
-
-    (19) oprand -> variable .
-
-    REGISTER8       reduce using rule 19 (oprand -> variable .)
-    REGISTER16      reduce using rule 19 (oprand -> variable .)
-    LBRACK          reduce using rule 19 (oprand -> variable .)
-    ID              reduce using rule 19 (oprand -> variable .)
-    DEC             reduce using rule 19 (oprand -> variable .)
-    HEX             reduce using rule 19 (oprand -> variable .)
-    BIN             reduce using rule 19 (oprand -> variable .)
-    STRING          reduce using rule 19 (oprand -> variable .)
-    LABLE           reduce using rule 19 (oprand -> variable .)
-    OPCODE          reduce using rule 19 (oprand -> variable .)
-    SEGMENT         reduce using rule 19 (oprand -> variable .)
-    $end            reduce using rule 19 (oprand -> variable .)
-
-
-state 28
-
-    (14) statementList -> statementList statement .
-
-    LABLE           reduce using rule 14 (statementList -> statementList statement .)
-    OPCODE          reduce using rule 14 (statementList -> statementList statement .)
-    SEGMENT         reduce using rule 14 (statementList -> statementList statement .)
-    $end            reduce using rule 14 (statementList -> statementList statement .)
+    RBRACK          reduce using rule 9 (variable -> ID .)
 
 
 state 29
 
-    (8) varassign -> ID DECLVAR . literal
-    (15) literal -> . DEC
-    (16) literal -> . HEX
-    (17) literal -> . BIN
-    (18) literal -> . STRING
+    (23) oprand -> REGISTER16 .
 
-    DEC             shift and go to state 24
-    HEX             shift and go to state 22
-    BIN             shift and go to state 19
-    STRING          shift and go to state 16
+    REGISTER8       reduce using rule 23 (oprand -> REGISTER16 .)
+    REGISTER16      reduce using rule 23 (oprand -> REGISTER16 .)
+    LBRACK          reduce using rule 23 (oprand -> REGISTER16 .)
+    ID              reduce using rule 23 (oprand -> REGISTER16 .)
+    DEC             reduce using rule 23 (oprand -> REGISTER16 .)
+    HEX             reduce using rule 23 (oprand -> REGISTER16 .)
+    BIN             reduce using rule 23 (oprand -> REGISTER16 .)
+    STRING          reduce using rule 23 (oprand -> REGISTER16 .)
+    LABLE           reduce using rule 23 (oprand -> REGISTER16 .)
+    MACHINE         reduce using rule 23 (oprand -> REGISTER16 .)
+    OPCODE          reduce using rule 23 (oprand -> REGISTER16 .)
+    SEGMENT         reduce using rule 23 (oprand -> REGISTER16 .)
+    $end            reduce using rule 23 (oprand -> REGISTER16 .)
 
-    literal                        shift and go to state 33
 
 state 30
 
-    (24) oprand -> LBRACK variable . RBRACK
+    (16) literal -> DEC .
 
-    RBRACK          shift and go to state 34
+    REGISTER8       reduce using rule 16 (literal -> DEC .)
+    REGISTER16      reduce using rule 16 (literal -> DEC .)
+    LBRACK          reduce using rule 16 (literal -> DEC .)
+    ID              reduce using rule 16 (literal -> DEC .)
+    DEC             reduce using rule 16 (literal -> DEC .)
+    HEX             reduce using rule 16 (literal -> DEC .)
+    BIN             reduce using rule 16 (literal -> DEC .)
+    STRING          reduce using rule 16 (literal -> DEC .)
+    LABLE           reduce using rule 16 (literal -> DEC .)
+    MACHINE         reduce using rule 16 (literal -> DEC .)
+    OPCODE          reduce using rule 16 (literal -> DEC .)
+    SEGMENT         reduce using rule 16 (literal -> DEC .)
+    $end            reduce using rule 16 (literal -> DEC .)
+    RBRACK          reduce using rule 16 (literal -> DEC .)
 
 
 state 31
-
-    (23) oprand -> LBRACK literal . RBRACK
-
-    RBRACK          shift and go to state 35
-
-
-state 32
-
-    (26) oprandList -> oprandList oprand .
-
-    REGISTER8       reduce using rule 26 (oprandList -> oprandList oprand .)
-    REGISTER16      reduce using rule 26 (oprandList -> oprandList oprand .)
-    LBRACK          reduce using rule 26 (oprandList -> oprandList oprand .)
-    ID              reduce using rule 26 (oprandList -> oprandList oprand .)
-    DEC             reduce using rule 26 (oprandList -> oprandList oprand .)
-    HEX             reduce using rule 26 (oprandList -> oprandList oprand .)
-    BIN             reduce using rule 26 (oprandList -> oprandList oprand .)
-    STRING          reduce using rule 26 (oprandList -> oprandList oprand .)
-    LABLE           reduce using rule 26 (oprandList -> oprandList oprand .)
-    OPCODE          reduce using rule 26 (oprandList -> oprandList oprand .)
-    SEGMENT         reduce using rule 26 (oprandList -> oprandList oprand .)
-    $end            reduce using rule 26 (oprandList -> oprandList oprand .)
-
-
-state 33
 
     (8) varassign -> ID DECLVAR literal .
 
@@ -583,38 +582,73 @@ state 33
     $end            reduce using rule 8 (varassign -> ID DECLVAR literal .)
 
 
+state 32
+
+    (27) oprandList -> oprandList oprand .
+
+    REGISTER8       reduce using rule 27 (oprandList -> oprandList oprand .)
+    REGISTER16      reduce using rule 27 (oprandList -> oprandList oprand .)
+    LBRACK          reduce using rule 27 (oprandList -> oprandList oprand .)
+    ID              reduce using rule 27 (oprandList -> oprandList oprand .)
+    DEC             reduce using rule 27 (oprandList -> oprandList oprand .)
+    HEX             reduce using rule 27 (oprandList -> oprandList oprand .)
+    BIN             reduce using rule 27 (oprandList -> oprandList oprand .)
+    STRING          reduce using rule 27 (oprandList -> oprandList oprand .)
+    LABLE           reduce using rule 27 (oprandList -> oprandList oprand .)
+    MACHINE         reduce using rule 27 (oprandList -> oprandList oprand .)
+    OPCODE          reduce using rule 27 (oprandList -> oprandList oprand .)
+    SEGMENT         reduce using rule 27 (oprandList -> oprandList oprand .)
+    $end            reduce using rule 27 (oprandList -> oprandList oprand .)
+
+
+state 33
+
+    (25) oprand -> LBRACK variable . RBRACK
+
+    RBRACK          shift and go to state 35
+
+
 state 34
 
-    (24) oprand -> LBRACK variable RBRACK .
+    (24) oprand -> LBRACK literal . RBRACK
 
-    REGISTER8       reduce using rule 24 (oprand -> LBRACK variable RBRACK .)
-    REGISTER16      reduce using rule 24 (oprand -> LBRACK variable RBRACK .)
-    LBRACK          reduce using rule 24 (oprand -> LBRACK variable RBRACK .)
-    ID              reduce using rule 24 (oprand -> LBRACK variable RBRACK .)
-    DEC             reduce using rule 24 (oprand -> LBRACK variable RBRACK .)
-    HEX             reduce using rule 24 (oprand -> LBRACK variable RBRACK .)
-    BIN             reduce using rule 24 (oprand -> LBRACK variable RBRACK .)
-    STRING          reduce using rule 24 (oprand -> LBRACK variable RBRACK .)
-    LABLE           reduce using rule 24 (oprand -> LBRACK variable RBRACK .)
-    OPCODE          reduce using rule 24 (oprand -> LBRACK variable RBRACK .)
-    SEGMENT         reduce using rule 24 (oprand -> LBRACK variable RBRACK .)
-    $end            reduce using rule 24 (oprand -> LBRACK variable RBRACK .)
+    RBRACK          shift and go to state 36
 
 
 state 35
 
-    (23) oprand -> LBRACK literal RBRACK .
+    (25) oprand -> LBRACK variable RBRACK .
 
-    REGISTER8       reduce using rule 23 (oprand -> LBRACK literal RBRACK .)
-    REGISTER16      reduce using rule 23 (oprand -> LBRACK literal RBRACK .)
-    LBRACK          reduce using rule 23 (oprand -> LBRACK literal RBRACK .)
-    ID              reduce using rule 23 (oprand -> LBRACK literal RBRACK .)
-    DEC             reduce using rule 23 (oprand -> LBRACK literal RBRACK .)
-    HEX             reduce using rule 23 (oprand -> LBRACK literal RBRACK .)
-    BIN             reduce using rule 23 (oprand -> LBRACK literal RBRACK .)
-    STRING          reduce using rule 23 (oprand -> LBRACK literal RBRACK .)
-    LABLE           reduce using rule 23 (oprand -> LBRACK literal RBRACK .)
-    OPCODE          reduce using rule 23 (oprand -> LBRACK literal RBRACK .)
-    SEGMENT         reduce using rule 23 (oprand -> LBRACK literal RBRACK .)
-    $end            reduce using rule 23 (oprand -> LBRACK literal RBRACK .)
+    REGISTER8       reduce using rule 25 (oprand -> LBRACK variable RBRACK .)
+    REGISTER16      reduce using rule 25 (oprand -> LBRACK variable RBRACK .)
+    LBRACK          reduce using rule 25 (oprand -> LBRACK variable RBRACK .)
+    ID              reduce using rule 25 (oprand -> LBRACK variable RBRACK .)
+    DEC             reduce using rule 25 (oprand -> LBRACK variable RBRACK .)
+    HEX             reduce using rule 25 (oprand -> LBRACK variable RBRACK .)
+    BIN             reduce using rule 25 (oprand -> LBRACK variable RBRACK .)
+    STRING          reduce using rule 25 (oprand -> LBRACK variable RBRACK .)
+    LABLE           reduce using rule 25 (oprand -> LBRACK variable RBRACK .)
+    MACHINE         reduce using rule 25 (oprand -> LBRACK variable RBRACK .)
+    OPCODE          reduce using rule 25 (oprand -> LBRACK variable RBRACK .)
+    SEGMENT         reduce using rule 25 (oprand -> LBRACK variable RBRACK .)
+    $end            reduce using rule 25 (oprand -> LBRACK variable RBRACK .)
+
+
+state 36
+
+    (24) oprand -> LBRACK literal RBRACK .
+
+    REGISTER8       reduce using rule 24 (oprand -> LBRACK literal RBRACK .)
+    REGISTER16      reduce using rule 24 (oprand -> LBRACK literal RBRACK .)
+    LBRACK          reduce using rule 24 (oprand -> LBRACK literal RBRACK .)
+    ID              reduce using rule 24 (oprand -> LBRACK literal RBRACK .)
+    DEC             reduce using rule 24 (oprand -> LBRACK literal RBRACK .)
+    HEX             reduce using rule 24 (oprand -> LBRACK literal RBRACK .)
+    BIN             reduce using rule 24 (oprand -> LBRACK literal RBRACK .)
+    STRING          reduce using rule 24 (oprand -> LBRACK literal RBRACK .)
+    LABLE           reduce using rule 24 (oprand -> LBRACK literal RBRACK .)
+    MACHINE         reduce using rule 24 (oprand -> LBRACK literal RBRACK .)
+    OPCODE          reduce using rule 24 (oprand -> LBRACK literal RBRACK .)
+    SEGMENT         reduce using rule 24 (oprand -> LBRACK literal RBRACK .)
+    $end            reduce using rule 24 (oprand -> LBRACK literal RBRACK .)
 

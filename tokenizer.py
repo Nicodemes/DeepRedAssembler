@@ -12,7 +12,7 @@ t_RBRACK      = r'\]'
 t_SEGMENT     = r'\.data|\.code'
 t_CURLL		  =r'}'
 t_CURLR		  =r'{'
-t_MACHINE     = r'>[\x00-\x7F]*\n'
+
 reserved={}
 
 def reserve(alist,category,capitalise=True):
@@ -44,7 +44,7 @@ def t_HEX(t):
 	t.value = int(t.value.lower().split('x')[1],16)
 	return t
 def t_DEC(t):
-	r'[1-9][0-9]*'
+	r'[0-9]+'
 	t.value=int(t.value)
 	return t
 
@@ -77,6 +77,14 @@ def t_ID(t):
 	except KeyError:
 		t.type="ID"
 	return t
+def t_MACHINE(t):
+    r'/.+;'
+    #t.value=t.value.split(">")[1]
+    t.value=t.value.split(";")[0]
+    if t.value[1]=='>':
+    	t.value=t.value.split(">")[1]
+    	t.value="\say `{}`".format(t.value)
+    return t
 # Build the lexert[0]
 import ply.lex as lex
 lex.lex()

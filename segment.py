@@ -46,7 +46,7 @@ class DataSegment(Segment):
 		return toRet
 	def setAdress(self,newAdress):
 		if not newAdress:
-			self.adress="{.data"+str(self.ID)+"}"
+			self.adress="{data"+str(self.ID)+"}"
 		else:
 			self.adress=newAdress
 class CodeSegment(Segment):
@@ -75,12 +75,12 @@ class CodeSegment(Segment):
 				try:	
 					rows[-1].addStatement(statement)
 				except MemoryRow.FullException:
-					raise Exception("Tue statement %s is too big for this memory")
+					raise Exception("Tue statement %s is too big for this memory"%str(statement))
 			statement.inSegmentPosition=len(rows)-1
 		rows[-1].seal()
 		return rows
 	def setAdress(self,newAdress):
 		if not newAdress:
-			self.adress="{.data"+str(CodeSegment.count)+"}"
+			self.adress="{data"+str(CodeSegment.count)+"}"
 		else:
 			self.adress=newAdress

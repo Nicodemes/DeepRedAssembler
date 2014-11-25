@@ -1,0 +1,1 @@
+{".data0": [10], ".code0": [["`p[2]()`", "`AH.set(Literal(2))`", "`p[3]()`", "`regRef1.origin(AL)`", "`Cdu.arg(1,8).set(Literal({data0}+0))`", "`MovRdM(Cdu.fetcher)`", "", ""], ["`p[3]()`", "`regRef1.origin(AL)`", "`regRef2.origin(AH)`", "`XorRR(p[2])`", "/say done.", "`Cdu.fetcher()`", "", ""]]}

@@ -96,6 +96,8 @@ def p_statement(t):
 		t[0]=LoopStatement(t[1],codeSegment,t[2])
 	elif t[1]=="jmp":
 		t[0]=JmpStatement(t[1],codeSegment,t[2])
+	elif t[1]=='int':
+		t[0]=IntStatement(t[1],codeSegment,t[2])
 	else:
 		t[0]=Statement(t[1],codeSegment,t[2])
 def p_statement_labled(t):
@@ -104,7 +106,9 @@ def p_statement_labled(t):
 	names[t[1]]=myLable
 	t[2].lable=myLable
 	t[0]=t[2]
-
+def p_statement_machinecode(t):
+	'statement : MACHINE'
+	t[0]=RawStatement(t[1],codeSegment)
 def p_statementList(t):
 	'''statementList : statement
 					 | statementList statement'''

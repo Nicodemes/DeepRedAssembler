@@ -17,7 +17,7 @@ class Statement(IAdressable):
 	def getAdress(self):
 		x=self.segment.getAdress()
 		if isinstance( x, str):
-			return x + "+"+str(self.locationInSegment)	
+			return x + "+"+str(self.locationInSegment)
 		return x + self.locationInSegment
 	def __str__(self):
 		if self.lable != None:
@@ -36,6 +36,11 @@ class Statement(IAdressable):
 		command+=self.opcodeName.title()
 		
 		toRet=list()
+		#HACK
+		if(self.opcodeName=='mov' and isinstance(self.oprands[1],Literal) and not isinstance(self.oprands[1],IAdressable)):
+			toRet.append("`{}.set(Literal({}))`".format(self.oprands[0].name,self.oprands[1].getValue()))
+			toRet.append("`{exit}()`")
+			return toRet
 		for i,op in enumerate(self.oprands):
 			if isinstance(op, IAdressable):
 				command+="A"
@@ -46,7 +51,11 @@ class Statement(IAdressable):
 			elif isinstance(op,Register):
 				command+="R"
 				toRet.append("`regRef{}.origin({})`".format(i+1,op.name))
-		toRet.append(command+"(p[{exit}])`")
+		if command=="`MovAR":
+			command="`MovMdR"
+		if command=="`MovRA":
+			command="`MovRdM"
+		toRet.append(command+"({exit})`")
 		return toRet
 class LoopStatement(Statement):
 	def __init__(self, opcodeName, segment,oprands,locationInSegment=None,lable=None):
@@ -79,3 +88,33 @@ class JmpStatement(Statement):
 			raise Exception("loop takes only constatns")
 		toRet.append("'JmpA({exit})")
 		return toRet
+
+class IntStatement(Statement):
+	def __init__(self, opcodeName, segment,oprands,locationInSegment=None,lable=None):
+		Statement.__init__(self, opcodeName, segment,oprands,locationInSegment,lable)
+	def transform(self):
+		num=self.oprands[0]
+		if not isinstance(num, Literal):
+			raise SyntaxError("int oprand must be a number")
+		if len(self.oprands)!=1:
+			raise SyntaxError("unimplamented more then 1 oprand for int")
+		num=num.getValue()
+		return {
+			22:self.iKeyboard,
+			16:self.iScreen,
+		}[num]()
+	def iKeyboard(self):
+		return ['keyboard.plant(p[1]())','keyboard.tmp.get(AL)','{exit}()']
+	def iScreen(self):
+		return ['/say [ERROR] screen is unimplamented','{exit}()']
+class RawStatement(Statement):
+	#TODO:make a raw statment a machine statemnt list instead
+	def __init__(self,raw,segment):
+		locationInSegment=None
+		self.segment=segment
+		self.raw=raw
+		self.lable=None
+	def transform(self):
+		return [self.raw,"`{exit}()`"]
+	def __str__(self):
+		return [self.raw,"`{exit}`"]

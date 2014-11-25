@@ -1,11 +1,17 @@
 {
 	"build_systems":
-    [
-        {
-            "name": "assemble",
-            "shell_cmd": "python E:/cs/proj/DeepRedAssembler/main.py --inp=E:/cs/proj/DeepRedAssembler/bin/in/test.asm --out=/cs/proj/DeepRedAssembler/bin/in/test.json",
-        }
-    ],
+	[
+		{
+			"name": "assemble",
+			"shell_cmd": "python E:/cs/proj/DeepRedAssembler/main.py --inp=E:/cs/proj/DeepRedAssembler/bin/in.asm --out=/cs/proj/DeepRedAssembler/bin/out.json"
+			
+		},
+		{
+			"name": "load",
+			"shell_cmd": "python E:/cs/proj/DeepRedAssembler/loader.py --bin=E:/cs/proj/DeepRedAssembler/bin/out.json --img=E:/cs/proj/DeepRedAssembler/bin/img.json"
+			
+		}
+	],
 	"folders":
 	[
 		{
@@ -27,6 +33,5 @@
 			"follow_symlinks": true,
 			"path": "E:\\Games\\Minecraft\\mcedit\\MCEdit-0.1.7.1.win-amd64\\filters"
 		}
-	],
-	
+	]
 }

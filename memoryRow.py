@@ -3,7 +3,7 @@ class MemoryRow:
 	def __init__(self, size=8):
 		self.size = size
 		self.blocks=list()
-		self.blocks.append("`p[{exit}]()`")
+		self.blocks.append("`{exit}()`")
 		self.freeSlots=7
 	def addBlock(self,command):
 		if not isinstance(command,str):
@@ -14,11 +14,11 @@ class MemoryRow:
 		formed=statement.transform()
 		if len(formed) > self.freeSlots:
 			raise MemoryRow.FullException()
-		self.formatLast(len(formed))
+		self.formatLast("p[%s]"%len(formed))
 		for block in formed:
 			self.addBlock(block)
 	def seal(self):
-		self.formatLast("Cdu.Fetcher")
+		self.formatLast("Cdu.fetcher")
 		for i in range(self.freeSlots):
 			self.blocks.append('')
 	def formatLast(self,mexit):

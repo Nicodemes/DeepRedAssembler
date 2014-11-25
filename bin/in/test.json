@@ -1,1 +1,0 @@
-{".code0": [["`p[3]()`", "`regRef1.origin(AL)`", "`Cdu.arg(1,8).set(Literal({.data0}+0))`", "`MovRA(p[Cdu.Fetcher])`", "", "", "", ""], ["`p[3]()`", "`regRef1.origin(AH)`", "`Cdu.arg(1,8).set(Literal({.data0}+1))`", "`MovRA(p[2])`", "`Cdu.arg(0,8).set(Literal({.data1}+1))`", "'JmpA(Cdu.Fetcher)", "", ""]], ".data0": [119, 104, 97, 116, 32, 105, 115, 32, 117, 112, 63, 256]}

@@ -5,9 +5,9 @@ _tabversion = '3.2'
 
 _lr_method = 'LALR'
 
-_lr_signature = b"'tE\xaa^\x90\x10\x08\xc1\xd5U\xbe\x88\xd0fF"
+_lr_signature = b'\xae\xb3\xa41cY\x89l\xb9\xbat\xc9\x1c_\xef\xed'
     
-_lr_action_items = {'SEGMENT':([0,2,4,7,8,10,11,13,14,15,16,18,19,20,21,22,23,24,25,26,27,28,32,33,34,35,],[1,-2,1,-6,-5,-13,-4,-3,-12,-7,-18,-11,-17,-25,-22,-16,-21,-15,-9,-20,-19,-14,-26,-8,-24,-23,]),'LBRACK':([6,9,16,18,19,20,21,22,23,24,25,26,27,32,34,35,],[-10,17,-18,17,-17,-25,-22,-16,-21,-15,-9,-20,-19,-26,-24,-23,]),'LABLE':([1,5,10,11,14,16,18,19,20,21,22,23,24,25,26,27,28,32,34,35,],[5,5,-13,5,-12,-18,-11,-17,-25,-22,-16,-21,-15,-9,-20,-19,-14,-26,-24,-23,]),'STRING':([6,9,16,17,18,19,20,21,22,23,24,25,26,27,29,32,34,35,],[-10,16,-18,16,16,-17,-25,-22,-16,-21,-15,-9,-20,-19,16,-26,-24,-23,]),'BIN':([6,9,16,17,18,19,20,21,22,23,24,25,26,27,29,32,34,35,],[-10,19,-18,19,19,-17,-25,-22,-16,-21,-15,-9,-20,-19,19,-26,-24,-23,]),'RBRACK':([16,19,22,24,25,30,31,],[-18,-17,-16,-15,-9,34,35,]),'REGISTER16':([6,9,16,18,19,20,21,22,23,24,25,26,27,32,34,35,],[-10,21,-18,21,-17,-25,-22,-16,-21,-15,-9,-20,-19,-26,-24,-23,]),'OPCODE':([1,5,10,11,14,16,18,19,20,21,22,23,24,25,26,27,28,32,34,35,],[6,6,-13,6,-12,-18,-11,-17,-25,-22,-16,-21,-15,-9,-20,-19,-14,-26,-24,-23,]),'HEX':([6,9,16,17,18,19,20,21,22,23,24,25,26,27,29,32,34,35,],[-10,22,-18,22,22,-17,-25,-22,-16,-21,-15,-9,-20,-19,22,-26,-24,-23,]),'REGISTER8':([6,9,16,18,19,20,21,22,23,24,25,26,27,32,34,35,],[-10,23,-18,23,-17,-25,-22,-16,-21,-15,-9,-20,-19,-26,-24,-23,]),'DECLVAR':([12,],[29,]),'DEC':([6,9,16,17,18,19,20,21,22,23,24,25,26,27,29,32,34,35,],[-10,24,-18,24,24,-17,-25,-22,-16,-21,-15,-9,-20,-19,24,-26,-24,-23,]),'ID':([1,6,7,8,9,15,16,17,18,19,20,21,22,23,24,25,26,27,32,33,34,35,],[12,-10,-6,12,25,-7,-18,25,25,-17,-25,-22,-16,-21,-15,-9,-20,-19,-26,-8,-24,-23,]),'$end':([2,3,4,7,8,10,11,13,14,15,16,18,19,20,21,22,23,24,25,26,27,28,32,33,34,35,],[-2,0,-1,-6,-5,-13,-4,-3,-12,-7,-18,-11,-17,-25,-22,-16,-21,-15,-9,-20,-19,-14,-26,-8,-24,-23,]),}
+_lr_action_items = {'BIN':([9,13,17,19,20,21,22,23,24,25,26,27,28,29,30,32,35,36,],[-10,20,20,-21,-18,-19,-17,20,-26,20,-20,-22,-9,-23,-16,-27,-25,-24,]),'STRING':([9,13,17,19,20,21,22,23,24,25,26,27,28,29,30,32,35,36,],[-10,21,21,-21,-18,-19,-17,21,-26,21,-20,-22,-9,-23,-16,-27,-25,-24,]),'MACHINE':([2,6,7,8,10,15,16,19,20,21,22,23,24,26,27,28,29,30,32,35,36,],[8,8,8,-13,-14,-15,-12,-21,-18,-19,-17,-11,-26,-20,-22,-9,-23,-16,-27,-25,-24,]),'SEGMENT':([0,1,4,5,6,8,10,12,14,15,16,18,19,20,21,22,23,24,26,27,28,29,30,31,32,35,36,],[2,-2,2,-6,-4,-13,-14,-5,-3,-15,-12,-7,-21,-18,-19,-17,-11,-26,-20,-22,-9,-23,-16,-8,-27,-25,-24,]),'LABLE':([2,6,7,8,10,15,16,19,20,21,22,23,24,26,27,28,29,30,32,35,36,],[7,7,7,-13,-14,-15,-12,-21,-18,-19,-17,-11,-26,-20,-22,-9,-23,-16,-27,-25,-24,]),'HEX':([9,13,17,19,20,21,22,23,24,25,26,27,28,29,30,32,35,36,],[-10,22,22,-21,-18,-19,-17,22,-26,22,-20,-22,-9,-23,-16,-27,-25,-24,]),'LBRACK':([9,13,19,20,21,22,23,24,26,27,28,29,30,32,35,36,],[-10,25,-21,-18,-19,-17,25,-26,-20,-22,-9,-23,-16,-27,-25,-24,]),'OPCODE':([2,6,7,8,10,15,16,19,20,21,22,23,24,26,27,28,29,30,32,35,36,],[9,9,9,-13,-14,-15,-12,-21,-18,-19,-17,-11,-26,-20,-22,-9,-23,-16,-27,-25,-24,]),'DEC':([9,13,17,19,20,21,22,23,24,25,26,27,28,29,30,32,35,36,],[-10,30,30,-21,-18,-19,-17,30,-26,30,-20,-22,-9,-23,-16,-27,-25,-24,]),'REGISTER8':([9,13,19,20,21,22,23,24,26,27,28,29,30,32,35,36,],[-10,27,-21,-18,-19,-17,27,-26,-20,-22,-9,-23,-16,-27,-25,-24,]),'$end':([1,3,4,5,6,8,10,12,14,15,16,18,19,20,21,22,23,24,26,27,28,29,30,31,32,35,36,],[-2,0,-1,-6,-4,-13,-14,-5,-3,-15,-12,-7,-21,-18,-19,-17,-11,-26,-20,-22,-9,-23,-16,-8,-27,-25,-24,]),'ID':([2,5,9,12,13,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,35,36,],[11,-6,-10,11,28,-7,-21,-18,-19,-17,28,-26,28,-20,-22,-9,-23,-16,-8,-27,-25,-24,]),'REGISTER16':([9,13,19,20,21,22,23,24,26,27,28,29,30,32,35,36,],[-10,29,-21,-18,-19,-17,29,-26,-20,-22,-9,-23,-16,-27,-25,-24,]),'RBRACK':([20,21,22,28,30,33,34,],[-18,-19,-17,-9,-16,35,36,]),'DECLVAR':([11,],[17,]),}
 
 _lr_action = { }
 for _k, _v in _lr_action_items.items():
@@ -16,7 +16,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'segment':([0,4,],[2,13,]),'oprandList':([9,],[18,]),'varassign':([1,8,],[7,15,]),'program':([0,],[3,]),'dataList':([1,],[8,]),'opcode':([1,5,11,],[9,9,9,]),'oprand':([9,18,],[20,32,]),'statement':([1,5,11,],[10,14,28,]),'literal':([9,17,18,29,],[26,31,26,33,]),'statementList':([1,],[11,]),'segmentList':([0,],[4,]),'variable':([9,17,18,],[27,30,27,]),}
+_lr_goto_items = {'literal':([13,17,23,25,],[19,31,19,34,]),'varassign':([2,12,],[5,18,]),'statementList':([2,],[6,]),'opcode':([2,6,7,],[13,13,13,]),'oprand':([13,23,],[24,32,]),'segmentList':([0,],[4,]),'variable':([13,23,25,],[26,26,33,]),'statement':([2,6,7,],[10,15,16,]),'segment':([0,4,],[1,14,]),'oprandList':([13,],[23,]),'dataList':([2,],[12,]),'program':([0,],[3,]),}
 
 _lr_goto = { }
 for _k, _v in _lr_goto_items.items():
@@ -27,29 +27,30 @@ del _lr_goto_items
 _lr_productions = [
   ("S' -> program","S'",1,None,None,None),
   ('program -> segmentList','program',1,'p_program','E:\\cs\\proj\\DeepRedAssembler\\rules.py',20),
-  ('segmentList -> segment','segmentList',1,'p_segmentList','E:\\cs\\proj\\DeepRedAssembler\\rules.py',38),
-  ('segmentList -> segmentList segment','segmentList',2,'p_segmentList','E:\\cs\\proj\\DeepRedAssembler\\rules.py',39),
-  ('segment -> SEGMENT statementList','segment',2,'p_segment','E:\\cs\\proj\\DeepRedAssembler\\rules.py',48),
-  ('segment -> SEGMENT dataList','segment',2,'p_segment','E:\\cs\\proj\\DeepRedAssembler\\rules.py',49),
-  ('dataList -> varassign','dataList',1,'p_dataList','E:\\cs\\proj\\DeepRedAssembler\\rules.py',58),
-  ('dataList -> dataList varassign','dataList',2,'p_dataList','E:\\cs\\proj\\DeepRedAssembler\\rules.py',59),
-  ('varassign -> ID DECLVAR literal','varassign',3,'p_varassign','E:\\cs\\proj\\DeepRedAssembler\\rules.py',71),
-  ('variable -> ID','variable',1,'p_variable','E:\\cs\\proj\\DeepRedAssembler\\rules.py',82),
-  ('opcode -> OPCODE','opcode',1,'p_opcode','E:\\cs\\proj\\DeepRedAssembler\\rules.py',89),
-  ('statement -> opcode oprandList','statement',2,'p_statement','E:\\cs\\proj\\DeepRedAssembler\\rules.py',93),
-  ('statement -> LABLE statement','statement',2,'p_statement_labled','E:\\cs\\proj\\DeepRedAssembler\\rules.py',101),
-  ('statementList -> statement','statementList',1,'p_statementList','E:\\cs\\proj\\DeepRedAssembler\\rules.py',107),
-  ('statementList -> statementList statement','statementList',2,'p_statementList','E:\\cs\\proj\\DeepRedAssembler\\rules.py',108),
-  ('literal -> DEC','literal',1,'p_literal','E:\\cs\\proj\\DeepRedAssembler\\rules.py',121),
-  ('literal -> HEX','literal',1,'p_literal','E:\\cs\\proj\\DeepRedAssembler\\rules.py',122),
-  ('literal -> BIN','literal',1,'p_literal','E:\\cs\\proj\\DeepRedAssembler\\rules.py',123),
-  ('literal -> STRING','literal',1,'p_literal','E:\\cs\\proj\\DeepRedAssembler\\rules.py',124),
-  ('oprand -> variable','oprand',1,'p_oprand','E:\\cs\\proj\\DeepRedAssembler\\rules.py',130),
-  ('oprand -> literal','oprand',1,'p_oprand','E:\\cs\\proj\\DeepRedAssembler\\rules.py',131),
-  ('oprand -> REGISTER8','oprand',1,'p_oprand','E:\\cs\\proj\\DeepRedAssembler\\rules.py',132),
-  ('oprand -> REGISTER16','oprand',1,'p_oprand','E:\\cs\\proj\\DeepRedAssembler\\rules.py',133),
-  ('oprand -> LBRACK literal RBRACK','oprand',3,'p_oprand_adress','E:\\cs\\proj\\DeepRedAssembler\\rules.py',136),
-  ('oprand -> LBRACK variable RBRACK','oprand',3,'p_oprand_effAdress','E:\\cs\\proj\\DeepRedAssembler\\rules.py',139),
-  ('oprandList -> oprand','oprandList',1,'p_oprandList','E:\\cs\\proj\\DeepRedAssembler\\rules.py',143),
-  ('oprandList -> oprandList oprand','oprandList',2,'p_oprandList','E:\\cs\\proj\\DeepRedAssembler\\rules.py',144),
+  ('segmentList -> segment','segmentList',1,'p_segmentList','E:\\cs\\proj\\DeepRedAssembler\\rules.py',39),
+  ('segmentList -> segmentList segment','segmentList',2,'p_segmentList','E:\\cs\\proj\\DeepRedAssembler\\rules.py',40),
+  ('segment -> SEGMENT statementList','segment',2,'p_segment','E:\\cs\\proj\\DeepRedAssembler\\rules.py',49),
+  ('segment -> SEGMENT dataList','segment',2,'p_segment','E:\\cs\\proj\\DeepRedAssembler\\rules.py',50),
+  ('dataList -> varassign','dataList',1,'p_dataList','E:\\cs\\proj\\DeepRedAssembler\\rules.py',59),
+  ('dataList -> dataList varassign','dataList',2,'p_dataList','E:\\cs\\proj\\DeepRedAssembler\\rules.py',60),
+  ('varassign -> ID DECLVAR literal','varassign',3,'p_varassign','E:\\cs\\proj\\DeepRedAssembler\\rules.py',72),
+  ('variable -> ID','variable',1,'p_variable','E:\\cs\\proj\\DeepRedAssembler\\rules.py',83),
+  ('opcode -> OPCODE','opcode',1,'p_opcode','E:\\cs\\proj\\DeepRedAssembler\\rules.py',90),
+  ('statement -> opcode oprandList','statement',2,'p_statement','E:\\cs\\proj\\DeepRedAssembler\\rules.py',94),
+  ('statement -> LABLE statement','statement',2,'p_statement_labled','E:\\cs\\proj\\DeepRedAssembler\\rules.py',102),
+  ('statement -> MACHINE','statement',1,'p_statement_machinecode','E:\\cs\\proj\\DeepRedAssembler\\rules.py',108),
+  ('statementList -> statement','statementList',1,'p_statementList','E:\\cs\\proj\\DeepRedAssembler\\rules.py',111),
+  ('statementList -> statementList statement','statementList',2,'p_statementList','E:\\cs\\proj\\DeepRedAssembler\\rules.py',112),
+  ('literal -> DEC','literal',1,'p_literal','E:\\cs\\proj\\DeepRedAssembler\\rules.py',125),
+  ('literal -> HEX','literal',1,'p_literal','E:\\cs\\proj\\DeepRedAssembler\\rules.py',126),
+  ('literal -> BIN','literal',1,'p_literal','E:\\cs\\proj\\DeepRedAssembler\\rules.py',127),
+  ('literal -> STRING','literal',1,'p_literal','E:\\cs\\proj\\DeepRedAssembler\\rules.py',128),
+  ('oprand -> variable','oprand',1,'p_oprand','E:\\cs\\proj\\DeepRedAssembler\\rules.py',134),
+  ('oprand -> literal','oprand',1,'p_oprand','E:\\cs\\proj\\DeepRedAssembler\\rules.py',135),
+  ('oprand -> REGISTER8','oprand',1,'p_oprand','E:\\cs\\proj\\DeepRedAssembler\\rules.py',136),
+  ('oprand -> REGISTER16','oprand',1,'p_oprand','E:\\cs\\proj\\DeepRedAssembler\\rules.py',137),
+  ('oprand -> LBRACK literal RBRACK','oprand',3,'p_oprand_adress','E:\\cs\\proj\\DeepRedAssembler\\rules.py',140),
+  ('oprand -> LBRACK variable RBRACK','oprand',3,'p_oprand_effAdress','E:\\cs\\proj\\DeepRedAssembler\\rules.py',143),
+  ('oprandList -> oprand','oprandList',1,'p_oprandList','E:\\cs\\proj\\DeepRedAssembler\\rules.py',147),
+  ('oprandList -> oprandList oprand','oprandList',2,'p_oprandList','E:\\cs\\proj\\DeepRedAssembler\\rules.py',148),
 ]
